@@ -12,6 +12,9 @@ el programa se vuelva a pedir la opción:
 • 1- muestra los números del 20 al 40 con un while
 • 2- muestra los número del 50 al 30 con un bucle for
 • 0- Finaliza el programa
+    
+    En este caso he decidido utilizar dos funciones utilizando un switch/case
+    para el control de flujo del programa.
      */
 
     public static void main(String[] args) {
