@@ -1,1 +1,1 @@
-# REpo para hacer ejercicios fuera del ciclo de DAW pero que me complementan
+# REpo para hacer ejercicios fuera del ciclo de DAW 
