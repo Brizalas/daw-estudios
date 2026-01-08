@@ -25,29 +25,30 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         double nota = 0;
         double[] calificacion = new double[10];
-
-        
+        boolean valido = true;
         //--------- bucle introducir las calificaciones--------------------------------------
         for (int i = 0; i < calificacion.length; i++) {
             do {
-
+               
                 try {
                     System.out.println("Introduce las calificacion " + (i + 1));
                     nota = Double.parseDouble(sc.nextLine());
 
                     if (nota < 0 || nota > 10) {
                         System.out.println("Introduce una nota entre el 0 y el 10");
+                        valido = false;
                     }
                 } catch (Exception e) {
-                    System.out.println("Error");
+                    System.out.println("Tienes q introducir un número");
+                    valido = false;
                 }
 
-            } while (nota < 0 || nota > 10);
+            } while (!valido);
 
             calificacion[i] = nota;
         }
         //---------- bucle mostrar calificaciones-------------------------------------------
-
+        
         for (int i = 0; i < calificacion.length; i++) {
             double n = calificacion[i];
             if (n < 3) {
@@ -59,7 +60,7 @@ public class Main {
             } else if (n < 10) {
                 System.out.println("Tu calificacion " + (i + 1) + " es " + n + " es excelente");
             } else if (n == 10) {
-                System.out.println("Tu calificacion " + (i+1) + " es " + n + " es sobresaliente");
+                System.out.println("Tu calificacion " + (i + 1) + " es " + n + " es sobresaliente");
             }
         }
 
