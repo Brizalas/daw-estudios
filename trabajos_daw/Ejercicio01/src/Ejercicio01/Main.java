@@ -50,14 +50,16 @@ public class Main {
 
         for (int i = 0; i < calificacion.length; i++) {
             double n = calificacion[i];
-            if (n >= 0 && n <= 2.99) {
+            if (n < 3) {
                 System.out.println("Tu calificacion " + (i + 1) + " es " + n + " es suspendido");
-            } else if (n >= 3 && n <= 4.99) {
+            } else if (n < 5) {
                 System.out.println("Tu calificacion " + (i + 1) + " es " + n + " es insuficiente");
-            } else if (n >= 5 && n <= 7.99) {
+            } else if (n < 8) {
                 System.out.println("Tu calificacion " + (i + 1) + " es " + n + " es aprobado");
-            } else if (n >= 8 && n <= 10) {
+            } else if (n < 10) {
                 System.out.println("Tu calificacion " + (i + 1) + " es " + n + " es excelente");
+            } else if (n == 10) {
+                System.out.println("Tu calificacion " + (i+1) + " es " + n + " es sobresaliente");
             }
         }
 
