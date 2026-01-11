@@ -27,14 +27,16 @@ public class Main {
 
         //bucle para introducir las calificaciones
         for (int i = 0; i < calificacion.length; i++) {
-            valido = false; //reset ... obligatorio?
+            valido = false; //reset obligatorio porque hay q validar que 
+                            //valido empieza siempre en false en cada iteración
             do {
                 try {
                     System.out.println("Introduce la calificación " +(i+1));
                     nota = Double.parseDouble(sc.nextLine());
                    
-                    if (nota >= 0 && nota <= 10) {
-                        
+                    if (nota >= 0 && nota <= 10) { //ESto es importante.
+                        //se usa este condicional para cambiar la bandera
+                        //Si esto pasa, valido pasa a true. Y eso pasa se sale del bucle.
                         valido = true;
                         
                     } else{
@@ -62,6 +64,8 @@ public class Main {
             } else if (n == 10) {
                 System.out.println("Matricula");
             }
+            System.out.println("");
+            System.out.println("Programa terminado");
         }
     }
 
