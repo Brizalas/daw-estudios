@@ -19,14 +19,14 @@ public class PidiendoValores {
 
         do {
             try {
-                
-               
-                num = pideValor(sc);
+
+                //no se llama a la función antes porque ya lo hace num
+                num = pideValor(sc); //la función se ejecuta en el momento que aparece la funcion
 
                 if (num > 0) {
                     System.out.println();
                     valido = true;
-                } else if (num < 0) {
+                } else {
 
                     System.out.println("El numero ha de ser positivo.");
                 }
@@ -34,11 +34,11 @@ public class PidiendoValores {
                 System.out.println("Error introduce números no letras");
             }
         } while (!valido);
-        
+
         System.out.println("Tu número es: " + num);
         System.out.println();
         System.out.println("Programa terminado correctamente.");
-        
+
     }
 
     public static int pideValor(Scanner sc) {
