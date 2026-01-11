@@ -1,1 +1,1 @@
-# REpositiorio para hacer ejercicios  del ciclo de DAW 
+# Repositiorio ejercicios del ciclo DAW 
