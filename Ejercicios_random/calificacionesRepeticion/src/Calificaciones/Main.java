@@ -23,21 +23,26 @@ public class Main {
         double nota = 0;
         double[] calificacion = new double[10];
         boolean valido = false;
+       
 
         //bucle para introducir las calificaciones
         for (int i = 0; i < calificacion.length; i++) {
+            valido = false; //reset ... obligatorio?
             do {
                 try {
                     System.out.println("Introduce la calificación " +(i+1));
                     nota = Double.parseDouble(sc.nextLine());
-
-                    if (nota < 0 || nota > 10) {
-                        System.out.println("Introduce un número comprendido entre 0 y 10 ambos inclusive.");
+                   
+                    if (nota >= 0 && nota <= 10) {
+                        
                         valido = true;
-                    } 
+                        
+                    } else{
+                        System.out.println("Introduce un número comprendido entre 0 y 10 ambos inclusive.");
+                    }
                 } catch (Exception e) {
-                    System.out.println("Error en el catch");
-                    valido = true;
+                    System.out.println("Error: Introduce un número");
+                    
                 }
             } while (!valido);
             calificacion[i] = nota;
