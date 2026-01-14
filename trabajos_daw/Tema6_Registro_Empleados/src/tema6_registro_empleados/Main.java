@@ -63,9 +63,23 @@ public class Main {
         String ruta = System.getProperty("user.dir");
         String sep = File.separator;
         File archivo = new File(ruta + sep + "archivo.txt");
-        if (!archivo.exists()) {
-            System.out.println("Archivo inexistente, creando archivo...");
-            System.out.println("Archivo creado en: " + archivo.getAbsolutePath());
+        if (!archivo.exists()) { //puse una opción por si no había archivo en este punto...
+            System.out.println("Este archivo no existe");//si, he reutilizado código ... XD
+            System.out.println("¿Crear uno? S/N");
+            String crearUno = sc.nextLine();
+            try {
+                if (crearUno.equalsIgnoreCase("s")) {
+                    registrarEmpleado(sc);
+                } else if(crearUno.equalsIgnoreCase("n")) {
+                    System.out.println("Volviendo al menú principal...");
+                    return;
+                }else{
+                    System.out.println("Introduce S ó N");
+                }
+            } catch (Exception e) {
+                System.out.println("Introduce carácteres válidos.");
+            }
+            return;
         }
 
         System.out.println("");
@@ -96,15 +110,17 @@ public class Main {
         String sep = File.separator;
         File archivo = new File(ruta + sep + "archivo.txt");
         if (!archivo.exists()) { //puse una opción por si no había archivo en este punto...
-            System.out.println("Este archivo no existe");
+            System.out.println("Este archivo no existe");//si, he reutilizado código ... XD
             System.out.println("¿Crear uno? S/N");
             String crearUno = sc.nextLine();
             try {
                 if (crearUno.equalsIgnoreCase("s")) {
                     registrarEmpleado(sc);
-                } else {
+                } else if(crearUno.equalsIgnoreCase("n")) {
                     System.out.println("Volviendo al menú principal...");
                     return;
+                }else{
+                    System.out.println("Introduce S ó N");
                 }
             } catch (Exception e) {
                 System.out.println("Introduce carácteres válidos.");
@@ -151,16 +167,18 @@ public class Main {
         String ruta = System.getProperty("user.dir");
         String sep = File.separator;
         File archivo = new File(ruta + sep + "archivo.txt");
-        if (!archivo.exists()) { //puse una opción por si no había archivo en este punto...
+       if (!archivo.exists()) { //puse una opción por si no había archivo en este punto...
             System.out.println("Este archivo no existe");//si, he reutilizado código ... XD
             System.out.println("¿Crear uno? S/N");
             String crearUno = sc.nextLine();
             try {
                 if (crearUno.equalsIgnoreCase("s")) {
                     registrarEmpleado(sc);
-                } else {
+                } else if(crearUno.equalsIgnoreCase("n")) {
                     System.out.println("Volviendo al menú principal...");
                     return;
+                }else{
+                    System.out.println("Introduce S ó N");
                 }
             } catch (Exception e) {
                 System.out.println("Introduce carácteres válidos.");
@@ -226,9 +244,11 @@ public class Main {
             try {
                 if (crearUno.equalsIgnoreCase("s")) {
                     registrarEmpleado(sc);
-                } else {
+                } else if(crearUno.equalsIgnoreCase("n")) {
                     System.out.println("Volviendo al menú principal...");
                     return;
+                }else{
+                    System.out.println("Introduce S ó N");
                 }
             } catch (Exception e) {
                 System.out.println("Introduce carácteres válidos.");
