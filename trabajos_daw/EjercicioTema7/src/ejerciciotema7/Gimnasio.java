@@ -45,7 +45,7 @@ public class Gimnasio {
     Estructura correcta del método asignarEntrenador:
     
     método
- ├─ for buscar cliente
+ ├─ for buscar cliente 
  ├─ for buscar entrenador
  ├─ if cliente no encontrado → mensaje + return
  ├─ if entrenador no encontrado → mensaje + return
@@ -80,9 +80,52 @@ public class Gimnasio {
         
         //asignación
         clienteEncontrado.setEntrenador(entrenadorEncontrado);
-        entrenadorEncontrado.getClientes()[entrenadorEncontrado.getContadorClientes()] = clienteEncontrado;
-        entrenadorEncontrado.incrementarContadorClientes();
+        entrenadorEncontrado.agregarCliente(clienteEncontrado);
     }
+    
+    public void mostrarClientes(){
+        for (int i = 0; i < contadorClientes; i ++){
+            Cliente c = clientes[i];
+            System.out.println("Nombre: " + c.getNombre());
+            System.out.println("DNI: " + c.getDni());
+            System.out.println("Edad: " + c.getEdad());
+            System.out.println("Email: " + c.getEmail());
+            
+            if(c.getEntrenador() != null){
+                System.out.println("Entrenador asignado: " + c.getEntrenador().getNombre());
+            }else{
+                System.out.println("Entrenador no asignado");
+            }
+            System.out.println();
+        }
+    }
+    
+    public void mostrarEntrenadores(){
+        for (int i = 0; i<contadorEntrenadores;i++){
+            Entrenador e = entrenadores[i];
+            System.out.println("----------ENTRENADOR----------------");
+            System.out.println("Nombre: " + e.getNombre());
+            System.out.println("Código: " + e.getCodigoEntrenador());
+            System.out.println("Edad: " + e.getEdad());
+            System.out.println("Teléfono: " + e.getTelefono());
+            System.out.println("Email: " + e.getEmail());
+            System.out.println("Especialidad: "+ e.getEspecialidad());
+            System.out.println("Excperiencia: " + e.getAniosExperiencia() + " años.");
+            
+            
+            if(e.getContadorClientes() ==0){
+                System.out.println("No hay clientes asignados todavía.");
+            }else{
+                System.out.println("Clientes asignados: ");
+                for(int j=0; j<e.getContadorClientes(); j++){
+                    Cliente c = e.getClientes()[j];
+                    System.out.println("- " + c.getNombre()+ " (DNI: " + c.getDni() + ")");
+                }
+            }
+            System.out.println();
+        }
+    }
+    
     
     
 

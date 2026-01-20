@@ -55,8 +55,8 @@ public class EjercicioTema7 {
                         String nombreEntrenador = sc.nextLine();//se guarda en variable local
                         entrenador.setNombre(nombreEntrenador);
                         System.out.println("Introduce el código del entrenador: ");
-                        String codigoEntrenador = sc.nextLine();
-                        entrenador.setCodigoEntrenador(codigoEntrenador);
+                        String codigoDeEntrenador = sc.nextLine();
+                        entrenador.setCodigoEntrenador(codigoDeEntrenador);
                         System.out.println("Introduce la edad: ");
                         int edadEntrenador = Integer.parseInt(sc.nextLine());
                         entrenador.setEdad(edadEntrenador);
@@ -75,11 +75,19 @@ public class EjercicioTema7 {
                         gym.agregarEntrenador(entrenador); //Gimnasio lo guarda en su array mediante agregarEntrenador
                         
                         break;
-                    case 3: 
+                    case 3:   
+                        System.out.println("Introduce el DNI del cliente");
+                        String dniCliente = sc.nextLine();
+                        System.out.println("Introduce el código del entrenador");
+                        String codigoEntrenador=sc.nextLine();
+                        
+                        gym.asignarEntrenador(dniCliente, codigoEntrenador);
                         break;
                     case 4:
+                        gym.mostrarClientes();
                         break;
                     case 5:
+                        gym.mostrarEntrenadores();
                         break;
                     case 0:
                         return;
@@ -90,14 +98,14 @@ public class EjercicioTema7 {
                 System.out.println("yo");
             }
             
-            System.out.println("¿Volver al menu principal?");
+            System.out.println("¿Volver al menu principal? s/n");
             String volver = sc.nextLine();
             
             if(volver.equalsIgnoreCase("s")){
                 valido=false;
                 
             }else{
-                System.out.println("Volviendo al menú principal");
+                System.out.println("Saliendo");
                 valido=true;
             }
         }while(!valido);

@@ -2,9 +2,9 @@ package ejerciciotema7;
 
 
 /*
-EJERCICIO 2: Crea una clase llamada "Entrenador" que represente a los entrenadores del gimnasio. 
-Esta clase debe tener atributos como nombre, codigoEntrenador, edad, teléfono, email, especialidad, 
-años de experiencia y un listado de Clientes asignados.
+EJERCICIO 2: Crea una clase llamada "Entrenador" que represente a los entrenadores del 
+gimnasio. Esta clase debe tener atributos como nombre, codigoEntrenador, edad, 
+teléfono, email, especialidad,años de experiencia y un listado de Clientes asignados.
  */
 public class Entrenador {
     public String nombre;
@@ -15,11 +15,11 @@ public class Entrenador {
     public String especialidad;
     public int aniosExperiencia;
     
-    private int contadorClientes;
+    private int contadorClientes; //se necestia para el método
     
     private Cliente[]clientes; //un entrenador puede tener muchos clientes
 
-    public Entrenador() {
+    public Entrenador() { 
         clientes = new Cliente[10];
         contadorClientes = 0;
     }
@@ -37,6 +37,13 @@ public class Entrenador {
         this.especialidad = especialidad;
         this.aniosExperiencia = aniosExperiencia;
         this.clientes = clientes;
+    }
+    
+    public void agregarCliente(Cliente cliente){
+        if(contadorClientes < clientes.length){
+            clientes[contadorClientes] = cliente;
+            contadorClientes++;
+        }
     }
 
     public String getNombre() {
