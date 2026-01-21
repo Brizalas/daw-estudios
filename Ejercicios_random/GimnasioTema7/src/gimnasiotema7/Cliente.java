@@ -13,6 +13,7 @@ String nombre, int DNI, int Edad, int teléfono, string email, string membresía
 */
 public class Cliente {
     private String nombre;
+    private String dni;
     private int edad;
     private int telefono;
     private String email;
@@ -22,8 +23,9 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nombre, int edad, int telefono, String email, int membresia, Entrenador entrenador) {
+    public Cliente(String nombre, String dni, int edad, int telefono, String email, int membresia, Entrenador entrenador) {
         this.nombre = nombre;
+        this.dni = dni;
         this.edad = edad;
         this.telefono = telefono;
         this.email = email;
@@ -37,6 +39,14 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    public String getDni(){
+        return dni;
+    }
+    
+    public void setDni(String dni){
+        this.dni=dni;
     }
 
     public int getEdad() {
