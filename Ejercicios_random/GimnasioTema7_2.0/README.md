@@ -7,7 +7,8 @@ Este proyecto pretende desarrollar una aplicación que gestione los entrenadores
 Regla: 
 - Sustantivo => posible clase
 - Acción => Será método
-# ENTIDADES(nombres en singular, una clase representa una cosa, no una colección)
+
+## ENTIDADES(nombres en singular, una clase representa una cosa, no una colección)
 -Gimnasio
 -cliente
 -entrenador
@@ -59,7 +60,7 @@ No es responsable de:
 - Almacenar datos
 - Aplicar reglas de negocio
 
-### Fase 4. Flujo general del programa
+## Fase 4. Flujo general del programa
 
 1. El programa arranca
 2. Se crea una instancia del gimnasio
@@ -86,6 +87,7 @@ No es responsable de:
 4. Se crea el entrenador
 5. Se añade al gimnasio
 
+
 ### Asignar entrenador
 
 1. El usuario selecciona "Asignar entrenador a cliente"
@@ -109,6 +111,100 @@ No es responsable de:
 
 1. El usuario selecciona "Salir"
 2. El programa termina
+
+## Fase 5 - CASO DE USO DETALLADO - Registrar Cliente
+### Caso de uso: Registrar cliente
+
+Precondiciones:
+- El programa está en ejecución
+- Existe una instancia del gimnasio
+
+Flujo principal:
+
+1. El usuario selecciona la opcion "Registrar cliente"
+2. El sistema comprueba si hay espacio en el disco
+3. El sistema solicita los datos del cliente
+4. El usuario introduce los datos
+5. El sistema crea el cliente con los datos introducidos
+6. El sistema añada el cliente al gimnasio
+7. El sistema muestra un mensaje de confirmacion
+8. El sistema vuelve al menu principal
+
+Flujo alternativo:
+Gimnasio lleno:
+- Si no hay espacio disponible:
+    - El sistema muestra un mensaje de aforo completo
+    - No se completa el registro
+    - Se vuelve al menu principal
+    
+Postcondiciones
+    - El cliente queda registrado en el gimnasio
+    - El número de clientes del gimnasio aumenta
+
+
+# FAse 6.1 diseño técnico
+
+### Clases del sistema
+- Gimnasio
+- Cliente
+- Entrenador
+- Main
+
+### Clase Cliente - representa a una persona, guarda sus propios datos, conoce a su entreador (si lo tiene)
+- nombre
+- dni
+- edad
+- telefono
+- email
+- tipomembresia
+- entrenador
+
+Métodos:
+- getters y setters
+
+### Clase entrenador. - representa a una persona, tiene clientes asignados
+- nombre
+- codigoEntrenador
+- edad
+- telefono
+- email
+- especialidad
+- experiencia
+- clientesAsignados
+
+Métodos.
+- agregarCliente
+- getters y setters
+
+Aqui aparece una relacion: un entrenador puede tener muchos clientes
+
+### Clase gimnasio. Cerebro del sistema
+
+- clientes
+- entrenadores
+- contadorClientes
+- contadorEntrenadores
+
+Métodos:
+- agregarCliente
+- agregarEntrenador
+- asignarEntrenador
+- mostrarClientes
+- mostrarEntrenadores
+
+Aquí vive la lógica, se controlan límites, se hacen asignaciones.
+
+### Clase main
+- mostrar menu
+- pedir datos al usuario
+- Llamar a los métodos del gimnasio
+
+No guarda clientes, no valida aforos, no asigna entrenadores.
+
+### PUNTO DE CONTROL
+- ¿Cada clase tiene una responsabilidad clara? Si
+- ¿POdría explicar pra qué sirve cada clase en una frase? Si
+- ¿No hay lógica "rara" en el Cliente o Main? No
 
 
 
