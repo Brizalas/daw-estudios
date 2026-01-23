@@ -111,7 +111,7 @@ public class Main {
                         System.out.println("Escribe una opcion válida");
                 }
 
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println("error");
             }
         } while (!valido);
