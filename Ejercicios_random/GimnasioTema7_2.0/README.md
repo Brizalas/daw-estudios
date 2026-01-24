@@ -162,7 +162,7 @@ Postcondiciones
 Métodos:
 - getters y setters
 
-### Clase entrenador. - representa a una persona, tiene clientes asignados
+### Clase Entrenador. - representa a una persona, tiene clientes asignados
 - nombre
 - codigoEntrenador
 - edad
@@ -178,7 +178,7 @@ Métodos.
 
 Aqui aparece una relacion: un entrenador puede tener muchos clientes
 
-### Clase gimnasio. Cerebro del sistema
+### Clase Gimnasio. Cerebro del sistema
 
 - clientes
 - entrenadores
@@ -192,9 +192,9 @@ Métodos:
 - mostrarClientes
 - mostrarEntrenadores
 
-Aquí vive la lógica, se controlan límites, se hacen asignaciones.
+Aquí vive la lógica, se controlan límites, se hacen asignaciones de los entrenadores para los clientes.
 
-### Clase main
+### Clase Main
 - mostrar menu
 - pedir datos al usuario
 - Llamar a los métodos del gimnasio
@@ -206,5 +206,60 @@ No guarda clientes, no valida aforos, no asigna entrenadores.
 - ¿POdría explicar pra qué sirve cada clase en una frase? Si
 - ¿No hay lógica "rara" en el Cliente o Main? No
 
+
+### Fase 6.2 Diseño técnico detallado
+
+### Clase Cliente
+Atributos:
+- String nombre
+- String dni
+- int edad
+- String telefono
+- String email
+- int tipomembresia
+- Entrenador entrenador
+Métodos:
+- Constructor con todos los atributos(excepto entrenador)
+- get/set de todos los atributos
+
+### Clase Entrenador
+Atributos:
+- String nombre
+- int codigoEntrenador
+- int edad
+- String telefono
+- String email
+- String especialidad
+- int experiencia
+- Cliente[] clientesAsignados
+- int contadorClientes
+Métodos:
+- Constructor con todos los atributos
+- agregarCliente (Cliente cliente) //no agrega clientes, los añade a su lista
+- get/set de atributos
+
+### Clase Main
+Responsabilidad:
+- Mostrar menu
+- Pedir datos por teclado
+- Crear objetos Cliente y Entrenador
+- Llamar a métodos del Gimnasio
+
+Scanner, validaciones de entrada, bucle menu...
+
+## Punto de control
+La clase Main crea los clientes
+La clase Gimnasio los guarda
+La clase Cliente sabe quien es su entrenador
+La clase Entrenador mantiene su lista de clientes
+
+### Fase 7- ORDEN DE IMPLEMENTACIÓN 
+El objetivo es programar sin bloqueos, probar cada paso y llegar al Main con tdo sólido.
+Como regla general: de lo simple a lo complejo. De lo que no depende de nadie a lo que depende de todos.
+
+### Clase Cliente.
+Empiezo por aqui porque no depende de ninguna otra lógica, es una clase de datos pura y si esto falla, todo falla.
+Hay que crear el cliente, declarar los atributos, crear el constructor y los getters/setters. Es opcional pero recomendable crear un toString(). 
+El planteamiento es crear un Cliente en una prueba rápida (o en el main temporal). Mostrar sus datos y ver que todo se asigna bien. 
 
 
