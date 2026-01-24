@@ -8,6 +8,6 @@ package Gimnasio;
  *
  * @author cristiancantero
  */
-public class Entrenadores {
+public class Entrenador {
     
 }
