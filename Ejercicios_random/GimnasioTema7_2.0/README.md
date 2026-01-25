@@ -235,6 +235,7 @@ Atributos:
 - int contadorClientes
 Métodos:
 - Constructor con todos los atributos
+- constructor con el array de clientes (10) definido y el contadorClientes inicializado.
 - agregarCliente (Cliente cliente) //no agrega clientes, los añade a su lista
 - get/set de atributos
 
@@ -261,5 +262,32 @@ Como regla general: de lo simple a lo complejo. De lo que no depende de nadie a 
 Empiezo por aqui porque no depende de ninguna otra lógica, es una clase de datos pura y si esto falla, todo falla.
 Hay que crear el cliente, declarar los atributos, crear el constructor y los getters/setters. Es opcional pero recomendable crear un toString(). 
 El planteamiento es crear un Cliente en una prueba rápida (o en el main temporal). Mostrar sus datos y ver que todo se asigna bien. 
+**Nota de diseño:**
 
+El atributo `entrenador` no se inicializa en el constructor de la clase `Cliente`.
+La asignación del entrenador se realiza posteriormente mediante un método específico,
+ya que el flujo del programa establece que primero se crea el cliente y más adelante
+se le asigna un entrenador desde la clase `Gimnasio`.
+
+Por este motivo, el constructor de `Cliente` inicializa el atributo `entrenador` a `null`.
+
+
+### Clase Entrenador
+Seguimos por aqui porque entrenador es la otra pata del banco aunque todavía no es el cerebro. El entrenador tiene que tener actualizada la lista de clientes asignados. Sin clientes no hay entrenadores para asignar. 
+Hay que crear el entrenador, declarar los atributos, crear constructor, getters y setters. También por si acaso crearemos un método toString().
+Crearé la clase y le haré pruebas con cliente aunque sea en el main temporal.
+
+Quiero hacer especial enfasis en getter y setter de Cliente[]clienteAsignado porque tienen una sintaxis ligeramente diferente:
+
+- getter:
+public Cliente[] getClienteAsignado(){
+return clienteAsignado;
+}
+- setter:
+public void setClienteAsignado(Cliente[]clienteAsignado){
+this.clienteAsignado = clienteAsignado
+}
+
+Constructores:
+El array de clientes y su contador forman parte del estado interno del entrenador. Por tanto, se inicializan dentro del constructor y no se pasan como parámentros.
 

@@ -16,14 +16,14 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nombre, String dni, int edad, String telefono, String email, int tipoMembresia, Entrenador entrenador) {
+    public Cliente(String nombre, String dni, int edad, String telefono, String email, int tipoMembresia) {
         this.nombre = nombre;
         this.dni = dni;
         this.edad = edad;
         this.telefono = telefono;
         this.email = email;
         this.tipoMembresia = tipoMembresia;
-        this.entrenador = entrenador;
+        this.entrenador = null;
     }
     
 //    public void mostrarDatosPrueba(){
