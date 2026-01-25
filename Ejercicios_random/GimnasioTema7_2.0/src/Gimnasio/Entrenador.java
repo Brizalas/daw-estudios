@@ -16,16 +16,43 @@ public class Entrenador {
     private int contadorCliente;
     
     public Entrenador(String nombre, int codigoEntrenador, int edad, String telefono, String email,
-            String especialidad, int experiencia, Cliente[] clienteAsignado, int contadorCliente){
+            String especialidad, int experiencia){
+        //datos reales del entrenador
         this.nombre=nombre;
         this.codigoEntrenador=codigoEntrenador;
         this.edad=edad;
         this.telefono=telefono;
         this.email=email;
         this.experiencia=experiencia;
-        this.clienteAsignado=clienteAsignado;
-        this.contadorCliente=contadorCliente;
+        //Estado interno del entrenador
+        this.clienteAsignado = new Cliente[10];
+        this.contadorCliente = 0;
+        /*
+        El array de clientes y el contador forman parte del estado interno 
+        del entrenador, por lo tanto se inicializan dentro del construcotr 
+        y no se pasan como parametros
+        */
+       
     }
+    
+    public void agregarCliente(Cliente cliente){
+        //si el contador de clientes es menor que la longitud del array, se crea un nuevo cliente
+        if(contadorCliente < clienteAsignado.length){
+            clienteAsignado[contadorCliente]= cliente;
+            //clienteAsignado apuntando a contadorCliente es un nuevo cliente (declarado en parametros)
+            contadorCliente ++; // se suma uno al contador
+        }else{
+            System.out.println("Cupo de clientes lleno para este entrenador. Por favor selecciona otro.");
+        }// este println esta para depurar, en ningún caso debo hacer esto en un proyecto real
+        // Es el main el responsable de avisar por pantalla nunca el método de una clase
+       
+    }
+
+    @Override
+    public String toString() {
+        return "Entrenador{" + "nombre=" + nombre + ", codigo del entrenador=" + codigoEntrenador + ", edad=" + edad + ", telefono=" + telefono + ", e-mail=" + email + ", especialidad=" + especialidad + ", experiencia=" + experiencia + ", clientes asignados=" + contadorCliente + '}';
+    }
+    
     
     public String getNombre(){
         return nombre;

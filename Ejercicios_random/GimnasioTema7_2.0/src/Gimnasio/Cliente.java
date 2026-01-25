@@ -16,7 +16,8 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nombre, String dni, int edad, String telefono, String email, int tipoMembresia) {
+    public Cliente(String nombre, String dni, int edad, String telefono, 
+            String email, int tipoMembresia) {
         this.nombre = nombre;
         this.dni = dni;
         this.edad = edad;

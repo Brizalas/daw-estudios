@@ -291,3 +291,52 @@ this.clienteAsignado = clienteAsignado
 Constructores:
 El array de clientes y su contador forman parte del estado interno del entrenador. Por tanto, se inicializan dentro del constructor y no se pasan como parámentros.
 
+### Clase Gimnasio
+
+Actua como núcleo del sistema. Es la responsbla de almacenar clientes y entrenadores, y de coordinar las relaciones entre ellos.
+
+### atributos
+- Cliente[] clientes
+- Entrenador[] entrenadores
+- int contadorClientes
+- int contadorEntrenadores
+
+#### constructor:
+- Inicializa el array de clientes (100)
+- Inicializa el array de entrenadores (10)
+- Inicializa ambos contadores a 0
+
+#### métodos:
+- agregarCliente (Cliente cliente)
+- agregarEntrenador (Entrenador entrenador)
+- asignarEntrenador (String dniCliente, int codigoEntrenador)
+- mostrarClientes()
+- mostrarEntrenadores()
+
+Responsabilidad de la clase:
+- No pide datos
+- no scanner, no souts. 
+Recibe objetos o identificadores:
+- recibe Cliente
+- recibe Entrenador
+- recibe dni, codigo etc..
+Solo hace lógica:
+- guarda
+- busca
+- asigna
+- muestra info ya preparada
+
+Gimnasio necesita comprobar si hay clientes, si hay entrenadores y si estos tienen clientes asignados.
+Usa los dos arrays, tanto el de clientes como el de entrenadores
+Y toca los dos contadores porque le toca hacer las asignaciones
+
+#### Diseño de los métodos
+- agregarCliente(Cliente cliente){} Este método recibe por parametros un objeto Cliente que de nombre se llamara cliente (veáse el cambio de mays a minuscula en el nombre). Primero comprueba el contador para saber si el array está lleno, de esta forma no lo recorre entero si noque "se fia" del contador para recorrerlo. Si el contador lo permite agregará un cliente nuevo en la posicion correspondiente del array y aumenta su contador en 1. 
+
+- agregarEntrenador(Entrenador entrenador){} sigue exactamente los mismos pasos de agregarCliente. Usando su contador y agregandolo si el contador nos dice que el array nos lo permite. Si el contador lo permite agregará un entrenador nuevo en su posición del array y sumará 1 a su contador.
+
+- asignarEntrenador(String dniCliente, int codigoEntrenador) Buscará el cliente por su dni, buscará al entrenador por el códigoEntrenador. Comprobará que el entrenador tenga espacio. Realiza la asignacion en ambos sentidos (No pregunta nada, eso lo hace el Main)
+
+- mostrar clientes usará un bucle for para recorrer el array del objeto y muestra la información de clientes.
+
+- mostrar entrenadores usará un bucle for para mostrar los entrenadores y muestra la información de los entrenadores.
