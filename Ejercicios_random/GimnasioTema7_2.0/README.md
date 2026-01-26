@@ -337,6 +337,20 @@ Y toca los dos contadores porque le toca hacer las asignaciones
 
 - asignarEntrenador(String dniCliente, int codigoEntrenador) Buscará el cliente por su dni, buscará al entrenador por el códigoEntrenador. Comprobará que el entrenador tenga espacio. Realiza la asignacion en ambos sentidos (No pregunta nada, eso lo hace el Main)
 
-- mostrar clientes usará un bucle for para recorrer el array del objeto y muestra la información de clientes.
+- mostrarClientes() usará un bucle for para recorrer el array del objeto y muestra la información de clientes.
+inicio bucle for. Se crea una instancia de Cliente. Se hacen los souts correspondientes obteniendo el nombre, dni etc con el método get. Se implementa un if para la membresía. 
 
-- mostrar entrenadores usará un bucle for para mostrar los entrenadores y muestra la información de los entrenadores.
+- mostrarEntrenadores() usará un bucle for para mostrar los entrenadores y muestra la información de los entrenadores. También usará otro bucle for para mostrar los clientes en caso de que los tenga asignados.
+
+### clase main
+esta clase solo tiene el bucle de entrada y salida, y los métodos que serán llamados. Evitaremos los case biblia para dejar lo más limpio y legible posible toda la clase. 
+
+flujo:
+El método necesita crear una instancia de Gimnasio proque es quien controla todo. Gimnasio gimnasio = new Gimnasio();
+Método Scanner para introducir datos de usuario
+Un boleano para tener una bandera.
+do/while try/catch y menú switch/case para controlar las decisiones del usuario. El case 0 que sirve para salir lo hace validando la bandera booleana y usando break. 
+
+#### métodos estaticos dentro del main. 
+En este caso y por una cuestión de estudio voy a usar los métodos dentro de esta misma query. En condiciones reales debería utilizar otra query para ingresar los métodos ahí y llamarlos desde el main:
+controllerApp.registrarCliente(sc,Gimnasio);
