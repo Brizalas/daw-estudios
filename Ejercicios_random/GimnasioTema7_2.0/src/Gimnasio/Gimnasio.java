@@ -5,7 +5,7 @@ package Gimnasio;
  * @author cristiancantero
  */
 public class Gimnasio {
-
+   
     private Cliente[] clientes;
     private Entrenador[] entrenadores;
     private int contadorClientes;
@@ -71,6 +71,55 @@ public class Gimnasio {
         //asignacion
         clienteEncontrado.setEntrenador(entrenadorEncontrado);
         entrenadorEncontrado.agregarCliente(clienteEncontrado);
+    }
+    
+    public void mostrarClientes(){
+        for(int i = 0; i < contadorClientes; i++){
+            Cliente c = clientes[i];
+           
+            System.out.println("Nombre: " + c.getNombre());
+            System.out.println(" DNI:    " + c.getDni());
+            System.out.println("Edad: " + c.getEdad());
+            System.out.println("Teléfono: " + c.getTelefono());
+            System.out.println("e-mail: " + c.getEmail());
+            if(c.getTipoMembresia()==1){
+                System.out.println("Membresía premium");
+            }else if(c.getTipoMembresia()==2){
+                System.out.println("Membresía básica");
+            }else{
+                System.out.println("Este cliente no tiene membresía");
+            }
+            if(c.getEntrenador() == null){
+                System.out.println("Este cliente no tiene entrenador asignado");
+            }else{
+                System.out.println("El cliente " + c.getNombre() + " tiene asignado "
+                + " al entrenador " + c.getEntrenador().getNombre() );
+            }
+        }
+    }
+    
+    public void mostrarEntrenadores(){ 
+        
+        for(int i = 0; i < contadorEntrenadores; i++){
+           
+            Entrenador e = entrenadores[i];
+            System.out.println("Nombre: " + e.getNombre());
+            System.out.println("Código de entrenador: " + e.getCodigoEntrenador());
+            System.out.println("Edad: " + e.getEdad());
+            System.out.println("Teléfono: " + e.getTelefono());
+            System.out.println("e-mail: " + e.getEmail());
+            System.out.println("Especialidad: " + e.getEspecialidad());
+            System.out.println("Experiencia: " + e.getExperiencia() + " años.");
+            if(e.getContadorCliente() == 0){
+                System.out.println(e.getNombre() + " no tiene clientes asignados");
+            }else{
+                Cliente[] clienteDelEntrenador = e.getClienteAsignado();
+                for(int j = 0; j <e.getContadorCliente(); j++){
+                    System.out.println("- " + clienteDelEntrenador[j].getNombre());
+                }
+            }
+            System.out.println("------------------------------------------------------------------");
+        }
     }
 
 }

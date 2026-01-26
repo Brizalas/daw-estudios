@@ -105,4 +105,8 @@ public class Entrenador {
         this.clienteAsignado=clienteAsignado;
     }
     
+    public int getContadorCliente(){
+        return contadorCliente;
+    }
+    
 }
