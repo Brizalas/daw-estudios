@@ -34,6 +34,9 @@ public class Entrenador {
         */
        
     }
+    public Entrenador(int codigoEntrenador){
+        this.codigoEntrenador=codigoEntrenador;
+    }
     
     public void agregarCliente(Cliente cliente){
         //si el contador de clientes es menor que la longitud del array, se crea un nuevo cliente

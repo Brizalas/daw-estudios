@@ -32,6 +32,7 @@ public class Gimnasio {
             contadorClientes ++;
         }
         
+        
     }
     
     public void agregarEntrenador(Entrenador entrenador){

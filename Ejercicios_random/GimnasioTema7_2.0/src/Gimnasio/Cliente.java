@@ -13,8 +13,7 @@ public class Cliente {
     private int tipoMembresia;
     private Entrenador entrenador;
 
-    public Cliente() {
-    }
+   
 
     public Cliente(String nombre, String dni, int edad, String telefono, 
             String email, int tipoMembresia) {
@@ -26,6 +25,11 @@ public class Cliente {
         this.tipoMembresia = tipoMembresia;
         this.entrenador = null;
     }
+
+    public Cliente(String dni) {
+        this.dni = dni;
+    }
+    
     
 //    public void mostrarDatosPrueba(){
 //        System.out.println("Nombre: " + nombre);
