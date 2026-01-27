@@ -354,3 +354,9 @@ do/while try/catch y menú switch/case para controlar las decisiones del usuario
 #### métodos estaticos dentro del main. 
 En este caso y por una cuestión de estudio voy a usar los métodos dentro de esta misma query. En condiciones reales debería utilizar otra query para ingresar los métodos ahí y llamarlos desde el main:
 controllerApp.registrarCliente(sc,Gimnasio);
+
+### conclusion
+
+El ejercicio funciona y ha salido bien pero hay que seguir estudiando el flujo y sobre todo el diseño tanto conceptual como técnico. 
+
+Como observación añadiré que estaría bien poner un mensaje de aviso cuando haces mostrar clientes o entrenadores y el array está vacío.
