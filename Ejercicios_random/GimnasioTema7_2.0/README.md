@@ -1,362 +1,379 @@
+📋 Proyecto Gimnasio – Documento de diseño y razonamiento
+Fase 1. Comprensión y reinterpretación del enunciado
 
-## Fase 1. Entender y reinterpretar el enunciado.
+Este proyecto consiste en desarrollar una aplicación de consola que gestione clientes y entrenadores de un gimnasio.
+El sistema debe trabajar en memoria y permitir, mediante un menú, las siguientes operaciones:
 
-Este proyecto pretende desarrollar una aplicación que gestione los entrenadores y clientes de un gimnasio. Tiene que mantener clientes y entrenadores en memória. Permitiendo altas, bajas, asignaciones y consultas mediante un menú. 
+Alta de clientes
 
-## Fase 2. Identificar ENTIDADES(sustantivos)
-Regla: 
-- Sustantivo => posible clase
-- Acción => Será método
+Alta de entrenadores
 
-## ENTIDADES(nombres en singular, una clase representa una cosa, no una colección)
--Gimnasio
--cliente
--entrenador
--Menu(conceptual)
+Asignación de entrenadores a clientes
 
-## Fase 3 - Responsabilidades (el corazón de la POO)
-Objetivo: evitar clases caóticas.
+Consulta de clientes
 
-### Gimnasio
-Responsable de:
-- Almacenar clientes
-- Almacenar entrenadores
-- Realizar asignaciones de entrenadores a clientes
-- Consultar información de clientes y entrenadores
+Consulta de entrenadores y sus clientes asignados
 
-No es responsable de:
-- pedir datos por teclado
-- mostrar menús
+El objetivo principal no es solo que la aplicación funcione, sino aplicar correctamente los principios de Programación Orientada a Objetos (POO).
 
-### Cliente
-Responsable de:
-- Almacenar su propia información (nombre, dni etc..)
-- Conocer qué entrenador tiene asignado (si lo tiene)
+Fase 2. Identificación de entidades
 
-No es responsable de: 
-- pedir datos por teclado
-- mostrar menús
-- almacenar otros clientes
-- buscar entrenadores
+Regla utilizada:
 
+Sustantivo → posible clase
 
-### entrenador
-Responsable de:
-- Almacenar su propia información
-- Mantener un listado de clientes asignados
- 
-No es responsable de: 
-- crear clientes
-- pedir datos por teclado
-- mostrar menus
+Acción → posible método
 
-### clase Main 
-Responsable de:
-- Mostrar los menus 
-- Pedir datos al usuario
-- Llamar a los métodos del gimnasio
+Entidades detectadas (en singular)
+
+Gimnasio
+
+Cliente
+
+Entrenador
+
+Menú (conceptual, no como clase independiente)
+
+Cada clase representa una cosa, no una colección.
+
+Fase 3. Definición de responsabilidades (núcleo de la POO)
+
+El objetivo de esta fase es evitar clases caóticas y repartir responsabilidades de forma clara.
+
+Clase Gimnasio
+
+Responsabilidades:
+
+Almacenar clientes
+
+Almacenar entrenadores
+
+Asignar entrenadores a clientes
+
+Consultar información de clientes y entrenadores
 
 No es responsable de:
-- Almacenar datos
-- Aplicar reglas de negocio
 
-## Fase 4. Flujo general del programa
+Pedir datos por teclado
 
-1. El programa arranca
-2. Se crea una instancia del gimnasio
-3. Se muestra el menú principal
-4. El usuario selecciona una opción
-5. Según la opción se ejecuta la acción correspondiente
-6. Al finalizar la acción se vuelve al menú principal
-7. El programa termina cuando el usuario selecciona la opción salir
+Mostrar menús
 
-### Registrar cliente
+Gestionar entrada/salida de usuario
 
-1. El usuario selecciona "Registrar cliente nuevo"
-2. El sistema comprueba si hay espacio disponible
-3. Se solicitan los datos del cliente
-4. Se crea el cliente
-5. Se añade al gimnasio
-6. Se muestra un mensaje de confirmación
+Clase Cliente
 
-### Registrar entrenador
+Responsabilidades:
 
-1. El usuario selecciona "Registrar profesional"
-2. El sistema comprueba si hay espacio disponible
-3. Se solicitan los datos del entrenador
-4. Se crea el entrenador
-5. Se añade al gimnasio
+Almacenar su propia información (nombre, DNI, edad, etc.)
 
+Conocer qué entrenador tiene asignado (si lo tiene)
 
-### Asignar entrenador
+No es responsable de:
 
-1. El usuario selecciona "Asignar entrenador a cliente"
-2. El sistema comprueba que existan clientes y entrenadores
-3. El usuario selecciona un cliente
-4. El usuario selecciona un entrenador
-5. Se realiza la asignación
-6. Se muestra un mensaje de confirmación
+Pedir datos por teclado
 
-### Mostrar clientes
+Mostrar menús
 
-1. El usuario selecciona "Mostrar todos los clientes"
-2. Se muestran los datos de todos los clientes
+Almacenar otros clientes
 
-### Mostrar entrenadores
+Buscar entrenadores
 
-1. El usuario selecciona "Mostrar todos los entrenadores"
-2. Se muestran los datos de los entrenadores y sus clientes asignados
+Clase Entrenador
 
-### Salir
+Responsabilidades:
 
-1. El usuario selecciona "Salir"
-2. El programa termina
+Almacenar su propia información
 
-## Fase 5 - CASO DE USO DETALLADO - Registrar Cliente
-### Caso de uso: Registrar cliente
+Mantener una lista de clientes asignados
+
+No es responsable de:
+
+Crear clientes
+
+Pedir datos por teclado
+
+Mostrar menús
+
+Clase Main
+
+Responsabilidades:
+
+Mostrar menús
+
+Pedir datos al usuario
+
+Llamar a los métodos del gimnasio
+
+No es responsable de:
+
+Almacenar datos
+
+Aplicar reglas de negocio
+
+Buscar o asignar objetos
+
+Fase 4. Flujo general del programa
+
+El programa arranca
+
+Se crea una instancia de Gimnasio
+
+Se muestra el menú principal
+
+El usuario selecciona una opción
+
+Se ejecuta la acción correspondiente
+
+Se vuelve al menú principal
+
+El programa finaliza cuando el usuario selecciona “Salir”
+
+Registrar cliente
+
+El usuario selecciona “Registrar cliente”
+
+El sistema comprueba si hay espacio
+
+Se solicitan los datos del cliente
+
+Se crea el objeto Cliente
+
+Se añade al gimnasio
+
+Se muestra confirmación
+
+Registrar entrenador
+
+El usuario selecciona “Registrar entrenador”
+
+El sistema comprueba si hay espacio
+
+Se solicitan los datos del entrenador
+
+Se crea el objeto Entrenador
+
+Se añade al gimnasio
+
+Asignar entrenador
+
+El usuario selecciona “Asignar entrenador”
+
+Se comprueba que existan clientes y entrenadores
+
+El usuario introduce el DNI del cliente
+
+El usuario introduce el código del entrenador
+
+El gimnasio realiza la asignación
+
+Se muestra confirmación
+
+Mostrar clientes
+
+El usuario selecciona “Mostrar clientes”
+
+Se muestran los datos de todos los clientes registrados
+
+Mostrar entrenadores
+
+El usuario selecciona “Mostrar entrenadores”
+
+Se muestran los entrenadores y sus clientes asignados
+
+Fase 5. Caso de uso detallado – Registrar cliente
 
 Precondiciones:
-- El programa está en ejecución
-- Existe una instancia del gimnasio
+
+El programa está en ejecución
+
+Existe una instancia de Gimnasio
 
 Flujo principal:
 
-1. El usuario selecciona la opcion "Registrar cliente"
-2. El sistema comprueba si hay espacio en el disco
-3. El sistema solicita los datos del cliente
-4. El usuario introduce los datos
-5. El sistema crea el cliente con los datos introducidos
-6. El sistema añada el cliente al gimnasio
-7. El sistema muestra un mensaje de confirmacion
-8. El sistema vuelve al menu principal
+El usuario selecciona “Registrar cliente”
+
+El sistema solicita los datos
+
+El usuario introduce los datos
+
+Se crea el cliente
+
+Se añade al gimnasio
+
+Se muestra confirmación
+
+Se vuelve al menú principal
 
 Flujo alternativo:
-Gimnasio lleno:
-- Si no hay espacio disponible:
-    - El sistema muestra un mensaje de aforo completo
-    - No se completa el registro
-    - Se vuelve al menu principal
-    
-Postcondiciones
-    - El cliente queda registrado en el gimnasio
-    - El número de clientes del gimnasio aumenta
 
+Si el gimnasio está lleno:
 
-# FAse 6.1 diseño técnico
+Se muestra mensaje de aforo completo
 
-### Clases del sistema
-- Gimnasio
-- Cliente
-- Entrenador
-- Main
+No se registra el cliente
 
-### Clase Cliente - representa a una persona, guarda sus propios datos, conoce a su entreador (si lo tiene)
-- nombre
-- dni
-- edad
-- telefono
-- email
-- tipomembresia
-- entrenador
+Se vuelve al menú
 
-Métodos:
-- getters y setters
+Postcondiciones:
 
-### Clase Entrenador. - representa a una persona, tiene clientes asignados
-- nombre
-- codigoEntrenador
-- edad
-- telefono
-- email
-- especialidad
-- experiencia
-- clientesAsignados
+El cliente queda registrado
 
-Métodos.
-- agregarCliente
-- getters y setters
+El contador de clientes aumenta
 
-Aqui aparece una relacion: un entrenador puede tener muchos clientes
+Fase 6. Diseño técnico
+Clases del sistema
 
-### Clase Gimnasio. Cerebro del sistema
+Gimnasio
 
-- clientes
-- entrenadores
-- contadorClientes
-- contadorEntrenadores
+Cliente
 
-Métodos:
-- agregarCliente
-- agregarEntrenador
-- asignarEntrenador
-- mostrarClientes
-- mostrarEntrenadores
+Entrenador
 
-Aquí vive la lógica, se controlan límites, se hacen asignaciones de los entrenadores para los clientes.
+Main
 
-### Clase Main
-- mostrar menu
-- pedir datos al usuario
-- Llamar a los métodos del gimnasio
+Clase Cliente
 
-No guarda clientes, no valida aforos, no asigna entrenadores.
+Representa a una persona.
 
-### PUNTO DE CONTROL
-- ¿Cada clase tiene una responsabilidad clara? Si
-- ¿POdría explicar pra qué sirve cada clase en una frase? Si
-- ¿No hay lógica "rara" en el Cliente o Main? No
-
-
-### Fase 6.2 Diseño técnico detallado
-
-### Clase Cliente
 Atributos:
-- String nombre
-- String dni
-- int edad
-- String telefono
-- String email
-- int tipomembresia
-- Entrenador entrenador
-Métodos:
-- Constructor con todos los atributos(excepto entrenador)
-- get/set de todos los atributos
 
-### Clase Entrenador
+nombre
+
+dni
+
+edad
+
+telefono
+
+email
+
+tipoMembresia
+
+entrenador
+
+Métodos:
+
+Constructor (sin entrenador)
+
+Getters y setters
+
+Nota de diseño:
+El entrenador se inicializa a null, ya que se asigna posteriormente desde el gimnasio.
+
+Clase Entrenador
+
+Representa a una persona que puede tener varios clientes.
+
 Atributos:
-- String nombre
-- int codigoEntrenador
-- int edad
-- String telefono
-- String email
-- String especialidad
-- int experiencia
-- Cliente[] clientesAsignados
-- int contadorClientes
-Métodos:
-- Constructor con todos los atributos
-- constructor con el array de clientes (10) definido y el contadorClientes inicializado.
-- agregarCliente (Cliente cliente) //no agrega clientes, los añade a su lista
-- get/set de atributos
 
-### Clase Main
+nombre
+
+codigoEntrenador
+
+edad
+
+telefono
+
+email
+
+especialidad
+
+experiencia
+
+clientesAsignados
+
+contadorClientes
+
+Métodos:
+
+Constructor
+
+agregarCliente(Cliente cliente)
+
+Getters y setters
+
+El array de clientes y su contador forman parte del estado interno del entrenador.
+
+Clase Gimnasio
+
+Es el núcleo del sistema.
+
+Atributos:
+
+clientes
+
+entrenadores
+
+contadorClientes
+
+contadorEntrenadores
+
+Métodos:
+
+agregarCliente
+
+agregarEntrenador
+
+asignarEntrenador
+
+mostrarClientes
+
+mostrarEntrenadores
+
 Responsabilidad:
-- Mostrar menu
-- Pedir datos por teclado
-- Crear objetos Cliente y Entrenador
-- Llamar a métodos del Gimnasio
 
-Scanner, validaciones de entrada, bucle menu...
+Contiene la lógica del sistema
 
-## Punto de control
-La clase Main crea los clientes
-La clase Gimnasio los guarda
-La clase Cliente sabe quien es su entrenador
-La clase Entrenador mantiene su lista de clientes
+No pide datos
 
-### Fase 7- ORDEN DE IMPLEMENTACIÓN 
-El objetivo es programar sin bloqueos, probar cada paso y llegar al Main con tdo sólido.
-Como regla general: de lo simple a lo complejo. De lo que no depende de nadie a lo que depende de todos.
+No usa Scanner
 
-### Clase Cliente.
-Empiezo por aqui porque no depende de ninguna otra lógica, es una clase de datos pura y si esto falla, todo falla.
-Hay que crear el cliente, declarar los atributos, crear el constructor y los getters/setters. Es opcional pero recomendable crear un toString(). 
-El planteamiento es crear un Cliente en una prueba rápida (o en el main temporal). Mostrar sus datos y ver que todo se asigna bien. 
-**Nota de diseño:**
+No muestra menús
 
-El atributo `entrenador` no se inicializa en el constructor de la clase `Cliente`.
-La asignación del entrenador se realiza posteriormente mediante un método específico,
-ya que el flujo del programa establece que primero se crea el cliente y más adelante
-se le asigna un entrenador desde la clase `Gimnasio`.
+Clase Main
 
-Por este motivo, el constructor de `Cliente` inicializa el atributo `entrenador` a `null`.
+Responsabilidad:
 
+Controlar el flujo del programa
 
-### Clase Entrenador
-Seguimos por aqui porque entrenador es la otra pata del banco aunque todavía no es el cerebro. El entrenador tiene que tener actualizada la lista de clientes asignados. Sin clientes no hay entrenadores para asignar. 
-Hay que crear el entrenador, declarar los atributos, crear constructor, getters y setters. También por si acaso crearemos un método toString().
-Crearé la clase y le haré pruebas con cliente aunque sea en el main temporal.
+Pedir datos
 
-Quiero hacer especial enfasis en getter y setter de Cliente[]clienteAsignado porque tienen una sintaxis ligeramente diferente:
+Llamar a los métodos del gimnasio
 
-- getter:
-public Cliente[] getClienteAsignado(){
-return clienteAsignado;
-}
-- setter:
-public void setClienteAsignado(Cliente[]clienteAsignado){
-this.clienteAsignado = clienteAsignado
-}
+Estructura:
 
-Constructores:
-El array de clientes y su contador forman parte del estado interno del entrenador. Por tanto, se inicializan dentro del constructor y no se pasan como parámentros.
+Scanner
 
-### Clase Gimnasio
+bucle do/while
 
-Actua como núcleo del sistema. Es la responsbla de almacenar clientes y entrenadores, y de coordinar las relaciones entre ellos.
+switch
 
-### atributos
-- Cliente[] clientes
-- Entrenador[] entrenadores
-- int contadorClientes
-- int contadorEntrenadores
+métodos auxiliares estáticos (para evitar case biblia)
 
-#### constructor:
-- Inicializa el array de clientes (100)
-- Inicializa el array de entrenadores (10)
-- Inicializa ambos contadores a 0
+Fase 7. Orden de implementación
 
-#### métodos:
-- agregarCliente (Cliente cliente)
-- agregarEntrenador (Entrenador entrenador)
-- asignarEntrenador (String dniCliente, int codigoEntrenador)
-- mostrarClientes()
-- mostrarEntrenadores()
+Clase Cliente
 
-Responsabilidad de la clase:
-- No pide datos
-- no scanner, no souts. 
-Recibe objetos o identificadores:
-- recibe Cliente
-- recibe Entrenador
-- recibe dni, codigo etc..
-Solo hace lógica:
-- guarda
-- busca
-- asigna
-- muestra info ya preparada
+Clase Entrenador
 
-Gimnasio necesita comprobar si hay clientes, si hay entrenadores y si estos tienen clientes asignados.
-Usa los dos arrays, tanto el de clientes como el de entrenadores
-Y toca los dos contadores porque le toca hacer las asignaciones
+Clase Gimnasio
 
-#### Diseño de los métodos
-- agregarCliente(Cliente cliente){} Este método recibe por parametros un objeto Cliente que de nombre se llamara cliente (veáse el cambio de mays a minuscula en el nombre). Primero comprueba el contador para saber si el array está lleno, de esta forma no lo recorre entero si noque "se fia" del contador para recorrerlo. Si el contador lo permite agregará un cliente nuevo en la posicion correspondiente del array y aumenta su contador en 1. 
+Clase Main
 
-- agregarEntrenador(Entrenador entrenador){} sigue exactamente los mismos pasos de agregarCliente. Usando su contador y agregandolo si el contador nos dice que el array nos lo permite. Si el contador lo permite agregará un entrenador nuevo en su posición del array y sumará 1 a su contador.
+Regla seguida:
 
-- asignarEntrenador(String dniCliente, int codigoEntrenador) Buscará el cliente por su dni, buscará al entrenador por el códigoEntrenador. Comprobará que el entrenador tenga espacio. Realiza la asignacion en ambos sentidos (No pregunta nada, eso lo hace el Main)
+De lo simple a lo complejo
+De lo que no depende de nadie a lo que depende de todos
 
-- mostrarClientes() usará un bucle for para recorrer el array del objeto y muestra la información de clientes.
-inicio bucle for. Se crea una instancia de Cliente. Se hacen los souts correspondientes obteniendo el nombre, dni etc con el método get. Se implementa un if para la membresía. 
+Conclusión
 
-- mostrarEntrenadores() usará un bucle for para mostrar los entrenadores y muestra la información de los entrenadores. También usará otro bucle for para mostrar los clientes en caso de que los tenga asignados.
+El ejercicio funciona correctamente y cumple el objetivo técnico.
+Lo más importante no ha sido el resultado final, sino el proceso de diseño, especialmente:
 
-### clase main
-esta clase solo tiene el bucle de entrada y salida, y los métodos que serán llamados. Evitaremos los case biblia para dejar lo más limpio y legible posible toda la clase. 
+Separación de responsabilidades
 
-flujo:
-El método necesita crear una instancia de Gimnasio proque es quien controla todo. Gimnasio gimnasio = new Gimnasio();
-Método Scanner para introducir datos de usuario
-Un boleano para tener una bandera.
-do/while try/catch y menú switch/case para controlar las decisiones del usuario. El case 0 que sirve para salir lo hace validando la bandera booleana y usando break. 
+Uso correcto de objetos existentes
 
-#### métodos estaticos dentro del main. 
-En este caso y por una cuestión de estudio voy a usar los métodos dentro de esta misma query. En condiciones reales debería utilizar otra query para ingresar los métodos ahí y llamarlos desde el main:
-controllerApp.registrarCliente(sc,Gimnasio);
+Paso de parámetros
 
-### conclusion
-
-El ejercicio funciona y ha salido bien pero hay que seguir estudiando el flujo y sobre todo el diseño tanto conceptual como técnico. 
-
-Como observación añadiré que estaría bien poner un mensaje de aviso cuando haces mostrar clientes o entrenadores y el array está vacío.
+Delegación de lógica al Gimnasio
