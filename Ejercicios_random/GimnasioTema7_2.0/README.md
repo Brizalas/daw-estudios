@@ -1,5 +1,5 @@
 📋 Proyecto Gimnasio – Documento de diseño y razonamiento
-Fase 1. Comprensión y reinterpretación del enunciado
+### Fase 1. Comprensión y reinterpretación del enunciado
 
 Este proyecto consiste en desarrollar una aplicación de consola que gestione clientes y entrenadores de un gimnasio.
 El sistema debe trabajar en memoria y permitir, mediante un menú, las siguientes operaciones:
@@ -16,7 +16,7 @@ Consulta de entrenadores y sus clientes asignados
 
 El objetivo principal no es solo que la aplicación funcione, sino aplicar correctamente los principios de Programación Orientada a Objetos (POO).
 
-Fase 2. Identificación de entidades
+### Fase 2. Identificación de entidades
 
 Regla utilizada:
 
@@ -36,7 +36,7 @@ Menú (conceptual, no como clase independiente)
 
 Cada clase representa una cosa, no una colección.
 
-Fase 3. Definición de responsabilidades (núcleo de la POO)
+### Fase 3. Definición de responsabilidades (núcleo de la POO)
 
 El objetivo de esta fase es evitar clases caóticas y repartir responsabilidades de forma clara.
 
@@ -112,7 +112,7 @@ Aplicar reglas de negocio
 
 Buscar o asignar objetos
 
-Fase 4. Flujo general del programa
+### Fase 4. Flujo general del programa
 
 El programa arranca
 
@@ -180,7 +180,7 @@ El usuario selecciona “Mostrar entrenadores”
 
 Se muestran los entrenadores y sus clientes asignados
 
-Fase 5. Caso de uso detallado – Registrar cliente
+### Fase 5. Caso de uso detallado – Registrar cliente
 
 Precondiciones:
 
@@ -220,7 +220,7 @@ El cliente queda registrado
 
 El contador de clientes aumenta
 
-Fase 6. Diseño técnico
+### Fase 6. Diseño técnico
 Clases del sistema
 
 Gimnasio
@@ -350,7 +350,7 @@ switch
 
 métodos auxiliares estáticos (para evitar case biblia)
 
-Fase 7. Orden de implementación
+### Fase 7. Orden de implementación
 
 Clase Cliente
 
@@ -365,7 +365,7 @@ Regla seguida:
 De lo simple a lo complejo
 De lo que no depende de nadie a lo que depende de todos
 
-Conclusión
+### Conclusión
 
 El ejercicio funciona correctamente y cumple el objetivo técnico.
 Lo más importante no ha sido el resultado final, sino el proceso de diseño, especialmente:
