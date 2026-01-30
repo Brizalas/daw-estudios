@@ -16,15 +16,12 @@ public class Entrenador {
     private int experiencia;
     private int contadorClientes; //contador para controlar los clientes
     private Cliente[]clientes; //rleacion un entrenador puede tener muchos clientes
-        //constructor vacío    
+          
     public Entrenador(){
     clientes =  new Cliente[10];//constructor con el array definido
     contadorClientes = 0;//contador inicializado
 }
     //métodos...
-    public void incrementarContadorClientes(){//metodo para incrementar el contador
-        contadorClientes ++;
-    }
     
     public void agregarCliente(Cliente cliente){//metodo para agregar uncliente a un entrenador
         if(contadorClientes<clientes.length){//Si el contador de clientes es menor q la longitud del array
