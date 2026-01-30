@@ -149,7 +149,7 @@ Métodos:
 - codigoProfesor
 - instrumento
 - experiencia
-- alumnosAsignados
+- contadorAlumnos
 
 Métodos:
 - getters y setters
@@ -164,14 +164,8 @@ Relación: Un profesor puede tener muchos alumnos
 - contadorAlumnos
 - contadorProfesores
 
-- constructor sin parámetros:
 
-public Escuela(){
-    this.alumno = new Alumno[15];
-    this.profesor = new Profesor[2];
-    this.contadorAlumnos = 0;
-    this.contadorProfesores = 0;
-}
+
 
 Este constructor no necesita parámetros porque la clase puede garantizar por si misma un estado inicial válido. 
 (Nota: el estado interno de un objeto son los datos que necesita para cumplir con su responsablidad sin despender del exterior).
@@ -215,8 +209,6 @@ Métodos:
 
 - String nombre
 - int codigoProfesor
-- String telefono
-- String email
 - String especialidad
 - Alumno [] alumnosAsignados
 - int contadorAlumnos
@@ -225,6 +217,9 @@ Métodos:
 - constructor con el array alumnos definido y el contadorAlumnos inicializado
 - agregarAlumno (Alumno alumno) // no los agrega, si no que los añade a su lista
 - getters y setters
+
+### Escuela
+- Esta clase no tiene atributos, al ser el cerebro del sistema contiene los métodos que harán que Alumno y Profesor pongan a su disposición su información y como trabajarla.
 
 ### Main
 Responsabilidad:
@@ -280,8 +275,8 @@ Métodos:
 - agregarAlumno (Alumno alumno)
 - agregarProfesor (Profesor profesor)
 - asignarProfesor (String dniAlumno, int codigoProfesor)
-- mostrarAlumnos()
-- mostrarProfesores()
+- mostrarAlumnos(Alumno alu)
+- mostrarProfesores(Profesor p)
 
 Responsabilidad de la clase:
 - No pide datos
@@ -312,6 +307,69 @@ Booleano para tener una bandera.
 do/while try/catch para controlar las decisiones del usuario.
 
 ### Métodos estaticos dentro del main para acabar de controlar la situación. 
+
+
+### DOCUMENTACIÓN DE ERRORES CODIFICANDO Y ARREGLO POSTERIOR.
+En cada error haremos lo siguiente:
+- que quería hacer
+- Que escribí
+- que está pasando en responsablidad
+- qué concepto he aprendido
+- Corrección mínima
+
+#### Error 1:
+Estamos en la clase Escuela que es el cerebro del programa.
+
+Método agregarAlumno:
+
+public void agregarAlumno(Alumno alu) {
+    if (contadorAlumnos <= 15) {
+        System.out.println("Aforo completo");
+    } else {
+        alumnos[contadorAlumnos] = alu;
+        contadorAlumnos++;
+    }
+}
+
+La idea mental correcta es: Si el array esta lleno => no añadir. Si hay espacio => añadir alumno y aumentar el contador.
+Lo que pasa en realidad es que el array new Alumno[15] da posiciones válidas del 0 al 14, la capacidad total es 15. Cuando el contadorAlumnos == 15 el array está lleno. Yo lo puse menor o igual... error de libro, de escribir automáticamente sin razonar. Detente, piensa...
+
+CONCEPTO CLAVE A APRENDER. El contador indica la siguiente posición libre, no la última ocupada. Y ademas, nunca debo comparar con números fijos, siempre compararlo con el tamaño del array. Es un concepto que se repite en todos los lenguajes.
+
+Correción mínima:
+
+if (contadorAlumnos >= alumnos.length){
+    sout("aforo completo")
+}else{
+    alumnos[contadorAlumnos]= alu;
+    contadorAlumnos ++;
+}
+#### ERROR 2:
+ 
+ Método asignarProfesor:
+ 
+ public void asignarProfesor(String dniAlumno, int codigoProfesor) {
+    Alumno alumnoEncontrado = null;
+    Profesor profesorEncontrado = null;
+
+    for (int i = 0; i < contadorAlumnos; i++) {
+        if (alumnos[i].getDni().equalsIgnoreCase(dniAlumno)) {
+            alumnos[i] = alumnoEncontrado;
+            break;
+        }
+    }
+}
+
+Lo que quería hacer: Recorrer el array de alumnos, encontrar el alumno cuyo DNI coincide, guardar la referencia y usarla más tarde para asignarla a un profesor. Cuando encuentre esa referencia lo guardo en alumnoEncontrado. He escrito esta línea:
+
+alumnos[i] = alumnoEncontrado;
+
+alumnoEncontrado vale null y no lo inicialicé así. Esta línea significa lo siguiente: en la posicion i del array mete null. 
+Es decir, no guardo el alumno, lo estoy borrando del array y, ademas, sigo sin guardar nada. De esta manera después del bucle alumnoEncontrado sigue null, el array puede perder datos y el error es muy traicionero porque no se ve hasta más tarde. Todo apunta a un fallo de dirección mental por mi parte...
+
+Concepto clave: Buscar no es asignar el array, es copiar una referencia del array a una variable. 
+Yo quería leer el array pero codifiqué como si lo quisiera modificar. La dirección correcta del flujo es ARRAY => VARIABLE. No al revés.
+
 
 
 
