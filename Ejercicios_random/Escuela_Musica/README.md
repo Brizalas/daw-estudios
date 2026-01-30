@@ -331,6 +331,8 @@ public void agregarAlumno(Alumno alu) {
     }
 }
 
+ESTO ESTA MAL!!! 
+
 La idea mental correcta es: Si el array esta lleno => no añadir. Si hay espacio => añadir alumno y aumentar el contador.
 Lo que pasa en realidad es que el array new Alumno[15] da posiciones válidas del 0 al 14, la capacidad total es 15. Cuando el contadorAlumnos == 15 el array está lleno. Yo lo puse menor o igual... error de libro, de escribir automáticamente sin razonar. Detente, piensa...
 
@@ -360,9 +362,11 @@ if (contadorAlumnos >= alumnos.length){
     }
 }
 
+ESTO ESTÁ MAL!!
+
 Lo que quería hacer: Recorrer el array de alumnos, encontrar el alumno cuyo DNI coincide, guardar la referencia y usarla más tarde para asignarla a un profesor. Cuando encuentre esa referencia lo guardo en alumnoEncontrado. He escrito esta línea:
 
-alumnos[i] = alumnoEncontrado;
+alumnos[i] = alumnoEncontrado; ===>> ESTO ESTÁ MAL
 
 alumnoEncontrado vale null y no lo inicialicé así. Esta línea significa lo siguiente: en la posicion i del array mete null. 
 Es decir, no guardo el alumno, lo estoy borrando del array y, ademas, sigo sin guardar nada. De esta manera después del bucle alumnoEncontrado sigue null, el array puede perder datos y el error es muy traicionero porque no se ve hasta más tarde. Todo apunta a un fallo de dirección mental por mi parte...
@@ -370,7 +374,38 @@ Es decir, no guardo el alumno, lo estoy borrando del array y, ademas, sigo sin g
 Concepto clave: Buscar no es asignar el array, es copiar una referencia del array a una variable. 
 Yo quería leer el array pero codifiqué como si lo quisiera modificar. La dirección correcta del flujo es ARRAY => VARIABLE. No al revés.
 
+Método corregido:
 
+ public void asignarProfesor(String dniAlumno, int codigoProfesor) {
+        Alumno alumnoEncontrado = null; ===>>>> ESTE ES EL ARRAY
+        Profesor profesorEncontrado = null;
+        //for para buscar al alumno
+        for (int i = 0; i < contadorAlumnos; i++) {
+            if (alumnos[i].getDni().equalsIgnoreCase(dniAlumno)) {
+                alumnoEncontrado = alumnos[i]; //===>>> ESTO ESTÁ BIEN
+                break;
+            }
+        }
+        //for buscar profesores
+        for (int i = 0; i < contadorProfesores; i++) {
+            if (profesores[i].getCodigoProfesor() == (codigoProfesor)) {
+                 profesorEncontrado= profesores[i];
+                break;
+            }
+        }
+        //comprobación de seguridad
+        if (alumnoEncontrado == null) {
+            System.out.println("No existe este alumno");
+        }
+        if (profesorEncontrado == null) {
+            System.out.println("No existe este profesor");
+        }
+
+        //asignacion
+        
+        alumnoEncontrado.setProfesor(profesorEncontrado);
+        profesorEncontrado.agregarAlumno(alumnoEncontrado);
+    }
 
 
 
