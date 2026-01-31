@@ -24,13 +24,13 @@ public class Profesor {
         }
     }
 
-    public Profesor(String nombre, String apellido, int codigoProfesor, String instrumento, int experiencia, int contadorAlumnos) {
+    public Profesor(String nombre, String apellido, int codigoProfesor, String instrumento, int experiencia) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.codigoProfesor = codigoProfesor;
         this.instrumento = instrumento;
         this.experiencia = experiencia;
-        this.contadorAlumnos = 0;
+        this.contadorAlumnos = 0; //no va por parametros porq es dato interno del objeto
         
     }
 

@@ -45,9 +45,11 @@ public class Escuela {
         //comprobación de seguridad
         if (alumnoEncontrado == null) {
             System.out.println("No existe este alumno");
+            return;
         }
         if (profesorEncontrado == null) {
             System.out.println("No existe este profesor");
+            return;
         }
 
         //asignacion
@@ -55,7 +57,7 @@ public class Escuela {
         profesorEncontrado.agregarAlumno(alumnoEncontrado);
     }
 
-    public void mostrarAlumnos(Alumno alu) {
+    public void mostrarAlumnos() {
         for (int i = 0; i < contadorAlumnos; i++) {
             Alumno a = alumnos[i];
 
@@ -86,7 +88,7 @@ public class Escuela {
     }
     }
 
-    public void mostrarProfesores(Profesor profe) {
+    public void mostrarProfesores() {
         for (int i = 0; i < contadorProfesores; i++) {
             Profesor p = profesores[i];
 
