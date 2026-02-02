@@ -362,7 +362,7 @@ if (contadorAlumnos >= alumnos.length){
     }
 }
 
-ESTO ESTÁ MAL!!
+#### ESTO ESTÁ MAL!!
 
 Lo que quería hacer: Recorrer el array de alumnos, encontrar el alumno cuyo DNI coincide, guardar la referencia y usarla más tarde para asignarla a un profesor. Cuando encuentre esa referencia lo guardo en alumnoEncontrado. He escrito esta línea:
 
@@ -406,6 +406,8 @@ Método corregido:
         alumnoEncontrado.setProfesor(profesorEncontrado);
         profesorEncontrado.agregarAlumno(alumnoEncontrado);
     }
+    
+    
 
 
 

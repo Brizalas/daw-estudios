@@ -51,6 +51,10 @@ public class Escuela {
             System.out.println("No existe este profesor");
             return;
         }
+        
+        if(alumnoEncontrado == null || profesorEncontrado == null){
+        return;
+    }
 
         //asignacion
         alumnoEncontrado.setProfesor(profesorEncontrado);
