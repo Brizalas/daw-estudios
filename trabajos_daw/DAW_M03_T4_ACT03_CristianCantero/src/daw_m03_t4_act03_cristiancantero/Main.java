@@ -22,7 +22,7 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean valido = false;
+        
         
         System.out.println("Bienvenidos a calculadora");
         do {
@@ -97,7 +97,7 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
             } catch (Exception e) {
                 System.out.println("Error, introduce datos correctos.");
             }
-        } while (!valido);
+        } while (true);
     }
 
     //funciones
