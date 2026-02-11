@@ -2,10 +2,10 @@ package daw_m03_t4_act03_cristiancantero;
 
 import java.util.Scanner;
 
-public class Main {
+public class Ejercicio1 {
 
     /*
-    @Author Cristian Cantero
+    * @author cristiancantero
     
     EJERCICIO 1: Crea un proyecto con métodos estáticos para realizar 
     operaciones matemáticas básicas. Los métodos deben tener los siguientes 

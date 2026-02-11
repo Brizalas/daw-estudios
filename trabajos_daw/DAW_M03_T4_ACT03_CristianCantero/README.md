@@ -33,6 +33,56 @@ El usuario introduce 1 para sumar. El main inicializa una variable que alberga u
 
 Las opciones restar y multiplicar usaran el array de int[] numeros para llamar a pedirDosNumeros(sc). Pero la opcion dividir tiene un cambio en el tipo de dato. Usaremos datos double. Asi creamos la funcion pedirDosNumerosDouble(Scanner sc) que cumple las mismas directrices de pedirDosNumeros(Scanner sc) pero cambiando el tipo de dato a double. 
 
+#### pendiente de revisión todo
+
+### Ejercicio 2
+
+Crea un proyecto que solicite al usuario que ingrese dos números enteros positivos: inicio y fin. El programa debe encontrar todos los números primos dentro de ese rango y mostrarlos al usuario.
+
+Para resolver esta actividad, puedes implementar las siguientes funciones:
+
+esPrimo(n): Esta función recibe un número entero positivo n como parámetro y devuelve true si es un número primo, y false en caso contrario. Para determinar si un número es primo, debes comprobar si es divisible únicamente por 1 y por sí mismo.
+
+calcularRaizCuadrada(n): Esta función recibe un número entero positivo n como parámetro y devuelve su raíz cuadrada.
+
+imprimirPrimosEnRango(inicio, fin): Esta función recibe dos números enteros positivos (inicio y fin) como parámetros y muestra por pantalla todos los números primos que se encuentran en ese rango. Puedes utilizar un bucle for para iterar desde inicio hasta fin, y dentro del bucle, llamar a la función esPrimo() para verificar si cada número es primo.
+
+El programa principal debe solicitar al usuario que ingrese los valores de inicio y fin, y luego llamar a la función imprimirPrimosEnRango() para mostrar los números primos en ese rango.
+
+En este ejercicio se ha desarrollado un programa que solicita al usuario dos números enteros positivos (inicio y fin) y muestra por pantalla todos los números primos que se encuentran dentro de ese rango.
+
+Enfoque y diseño
+Antes de implementar el código, se ha diseñado la solución separando claramente las responsabilidades de cada parte del programa:
+	•	El método main se encarga de la interacción con el usuario y de coordinar la ejecución del programa.
+	•	La función pedirNumeros(Scanner sc) solicita los valores de inicio y fin al usuario y los devuelve en un array de enteros.
+	•	La función recorrerNumeros(int inicio, int fin) recorre el rango de números comprendido entre inicio y fin y decide qué valores deben mostrarse.
+	•	La función esPrimo(int n) se encarga exclusivamente de determinar si un número es primo, devolviendo un valor booleano (true o false).
+
+De esta forma, cada función tiene una única responsabilidad, evitando mezclar entrada de datos, lógica de cálculo y salida por pantalla.
+
+Lógica para determinar números primos
+Para comprobar si un número es primo, se ha implementado la función esPrimo(int n) siguiendo estos pasos:
+	•	Se descartan directamente los números menores o iguales a 1, ya que no pueden ser primos.
+	•	Se calcula la raíz cuadrada del número como límite de comprobación.
+	•	Se comprueba si el número es divisible por algún valor comprendido entre 2 y la raíz cuadrada (inclusive).
+	•	Si se encuentra algún divisor exacto, el número no es primo.
+	•	Si no se encuentra ningún divisor, el número se considera primo.
+
+Este enfoque evita comprobaciones innecesarias y se ajusta a lo indicado en el enunciado del ejercicio.
+
+Uso de funciones booleanas y condicionales
+Un aspecto clave del ejercicio ha sido el uso de funciones que devuelven valores booleanos.
+La función esPrimo(n) se utiliza directamente dentro de una estructura if, de modo que:
+	•	Si la función devuelve true, el número se muestra por pantalla.
+	•	Si devuelve false, el número se ignora y el programa continúa con el siguiente valor del rango.
+
+Este patrón permite que la decisión lógica esté encapsulada dentro de la función, manteniendo el código del recorrido limpio y legible.
+
+Dificultades y resolución
+Durante el desarrollo del ejercicio se detectó un error sutil relacionado con el límite del bucle utilizado para comprobar los divisores de un número primo. En concreto, fue necesario incluir correctamente la raíz cuadrada como límite superior del bucle (<=) para garantizar que todos los divisores relevantes fueran evaluados.
+
+La detección y corrección de este error permitió comprender mejor la relación entre la lógica matemática y su implementación en código, reforzando el entendimiento del algoritmo utilizado.
+
 
 
 ## Autor
