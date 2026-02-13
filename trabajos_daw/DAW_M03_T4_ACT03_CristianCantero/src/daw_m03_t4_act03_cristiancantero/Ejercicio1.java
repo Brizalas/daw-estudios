@@ -33,6 +33,7 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
                 System.out.println("2. restar");
                 System.out.println("3. multiplicar");
                 System.out.println("4. dividir");
+                System.out.println("5. potencias");
                 System.out.println("0. Salir");
                 System.out.println("--------------------");
                 int opcion = Integer.parseInt(sc.nextLine());
@@ -85,8 +86,19 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
                         + " / " + b + " es igual a: " + resultado);
                         break;
                     }
+                    
+                    case 5:
+                        int[]numeros = pedirDosNumeros(sc);
                         
+                        int a = numeros[0];
+                        int b = numeros[1];
                         
+                        int resultado = potencia(a,b);
+                        
+                        System.out.println("El resultado de elevar " + a
+                        + " a la " + b + " es: " + resultado);
+                        
+                        break;
                     case 0:
                         System.out.println("Adios.");
                         return;
@@ -134,6 +146,15 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
    }
    public static double dividir (double a, double b){
        return a / b;
+   }
+   public static int potencia(int a, int b){
+       int resultado= 1;
+       
+       for(int i=0;i<b;i++){
+           resultado = resultado * a;
+       }
+       
+       return resultado;
    }
 
 }
