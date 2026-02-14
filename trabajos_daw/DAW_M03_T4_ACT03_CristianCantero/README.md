@@ -21,35 +21,42 @@ Crea un proyecto con métodos estáticos para realizar operaciones matemáticas 
 Crea un menú para que el usuario pueda elegir que operación quiere realizar. Una de las opciones permitirá salir y cerrar el programa.
 
 ## Para este ejercicio.
-El main tiene la responsabilidad de pedir los datos al usuario y llamar a las funciones. Esto lo haremos mediante un switch/case. Las opciones son 1.sumar, 2.restar, 3.multiplicar, 4.dividir, 5 potencias. Cada vez q el usuario marca una opción el main llama a la función correspondiente.
+El main tiene la responsabilidad de pedir los datos al usuario y llamar a las funciones. Esto lo haremos mediante un switch/case. Las opciones son 1.sumar, 2.restar, 3.multiplicar, 4.dividir, 5 potencias. Cada vez q el usuario marca una opción el main llama a la función correspondiente. Estas funciones estaticas estarán dentro de la misma clase donde también estará el bloque main. 
+
 Flujo:
-El programa arranca. Se instancia un objeto Scanner. Salta el primer rótulo de bienvenida (solo salta al iniciar el programa). Se despliega el menú. El usuario escoge una opción. Segun la opcion el case se encarga de encapsular todas las instrucciones. Se vuelve al menu principal (sin rotulo de bienvenida). El programa termina cuando el usuario marca la opción 0 en el menu. 
+El programa arranca. Se instancia un objeto Scanner. Salta el primer rótulo de bienvenida (solo salta al iniciar el programa). Se despliega el menú. El usuario escoge una opción. El usuario sigue las instrucciones y hace sus operaciones hasta que termina la función. Se vuelve al menu principal (sin rotulo de bienvenida). El programa termina cuando el usuario marca la opción 0 en el menu. 
 
-Observación:
-cada case ha encapsulado sus intrucciones dentro de {}. Asi separamos cada ámbito. De esta manera evitamos los conflictos por declaración de variables dentro del switch. 
+Observación del código:
+Dentro del switch,cada case ha encapsulado sus intrucciones entre llaves {}. Asi separamos cada ámbito. De esta manera evitamos los conflictos por declaración de variables dentro del switch. 
 
-Casos de uso:
-El usuario introduce 1 para sumar. El main inicializa una variable que alberga un array y le pasa el método public static int[] pedirDosNumoeros(Scanner sc). Guarda el valor de las posiciones del array e inicializa una variable llamada resultado cuyo valor será la función sumar(a,b); que agarra los valores y los suma. 
+- Caso de uso:
+El usuario introduce 1 en el menú para sumar. El main inicializa una variable que alberga un array y le pasa el método public static int[] pedirDosNumoeros(Scanner sc). Este método es el que se encarga de recoger los datos que introduce el usuario. Despues declaramos dos variables integer (int a, int b) que guardan las posiciónes correspondientes del array donde se encuentran los datos introducidos por el usuario (int a = numeros[0]).
+Finalmente, la variable resultado llama al método sumar pasandole por parametro los datos guardados en los integer.
+int resulatdo = sumar(a,b);
 
-Las opciones restar y multiplicar usaran el array de int[] numeros para llamar a pedirDosNumeros(sc). Pero la opcion dividir tiene un cambio en el tipo de dato. Usaremos datos double. Asi creamos la funcion pedirDosNumerosDouble(Scanner sc) que cumple las mismas directrices de pedirDosNumeros(Scanner sc) pero cambiando el tipo de dato a double. 
+Las opciones restar y multiplicar usaran la misma lógica para llamar a pedirDosNumeros(sc). Pero la opcion 4 dividir tiene un cambio en el tipo de dato. Usaremos datos double. Asi creamos la funcion pedirDosNumerosDouble(Scanner sc) que cumple las mismas directrices de pedirDosNumeros(Scanner sc) pero cambiando el tipo de dato a double. 
 
-Casos de uso:
-El usuario introduce 5 para la potencia. Se vuelve a llamar al método pedirDosNumeros() inicializando una variable en forma de array que usará el método. int[]variable = pedirDosNumeros(sc);
-El programa pide al usuario la base, y seguidamente la potencia.  Seguidamente se almacenan las posiciones de los números en dos variables. Se inicializa otra variable que será el resultado y se pasa la función potencia(a,b) 
+- Caso de uso:
+El usuario introduce 5 para la potencia. Se vuelve a llamar al método pedirDosNumeros() inicializando una variable en forma de array que usará el método. int[]numeros = pedirDosNumeros(sc);
+El programa pide al usuario la base, y seguidamente la potencia.  Seguidamente se almacenan las posiciones de los números en dos variables. Se inicializa otra variable de nombre resultado y se le pasa la función potencia(a,b) 
 El programa pinta el resultado.
 
-Función public static int potencia(int base, int exponente){
-	int resultado = 0;
+Función para calcular la pontencia:
+
+public static int potencia(int base, int exponente){
+	int resultado = 1;
 	for(int i = 0; i < exponente; i ++){
 		int resultado = base * resultado;
 	}
 	return resultado;
 
-}
+} /*nota: en el ejercicio cambié el tipo de dato a long. Para hacerlo bien debería haber utilizado BigInteger pero eso es harina de otro costal y no me he querido meter. He visto que pertenece al apartado de objetos y todavía me falta para eso. Ya se que el enunciado pide numeros enteros. Pero haciendole testing a la función vi que en nada teniamos overflow por culpa del tipo de dato, entonces me puse a trastear. */
+
+Observaciones: La primera vez que modelé esta función inicialicé la variable resultado en 0. Entonces si exponente == 0 no hay ninguna iteración y por lo tanto cuando llega el return devuelve resultado tal y como lo inicialicé. La compilación no da error pero el fallo matemático era evidente. Solución: inicializar en 1. Si no hay iteración cuando llegamos al return el resultado que devuelve es el mismo que el de inicio. Que a la postre nos sirve matemáticamente porque cualquier número eleveado a 0 es 1. 
  
-
-
 #### pendiente de revisión todo
+
+
 
 ### Ejercicio 2
 

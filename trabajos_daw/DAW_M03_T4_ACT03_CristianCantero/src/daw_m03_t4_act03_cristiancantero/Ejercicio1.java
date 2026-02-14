@@ -93,7 +93,7 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
                         int a = numeros[0];
                         int b = numeros[1];
                         
-                        int resultado = potencia(a,b);
+                        long resultado = potencia(a,b);
                         
                         System.out.println("El resultado de elevar " + a
                         + " a la " + b + " es: " + resultado);
@@ -147,8 +147,8 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
    public static double dividir (double a, double b){
        return a / b;
    }
-   public static int potencia(int a, int b){
-       int resultado= 1;
+   public static long potencia(long a, long b){
+       long resultado= 1;
        
        for(int i=0;i<b;i++){
            resultado = resultado * a;
