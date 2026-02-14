@@ -21,9 +21,9 @@ Crea un proyecto con métodos estáticos para realizar operaciones matemáticas 
 Crea un menú para que el usuario pueda elegir que operación quiere realizar. Una de las opciones permitirá salir y cerrar el programa.
 
 ## Para este ejercicio.
-El main tiene la responsabilidad de pedir los datos al usuario y llamar a las funciones. Esto lo haremos mediante un switch/case. Las opciones son 1.sumar, 2.restar, 3.multiplicar, 4.dividir. Cada vez q el usuario marca una opción el main llama a la función correspondiente.
+El main tiene la responsabilidad de pedir los datos al usuario y llamar a las funciones. Esto lo haremos mediante un switch/case. Las opciones son 1.sumar, 2.restar, 3.multiplicar, 4.dividir, 5 potencias. Cada vez q el usuario marca una opción el main llama a la función correspondiente.
 Flujo:
-El programa arranca. Se instancia un objeto Scanner. Salta el primer rótulo de bienvenida (no saltará más). Se despliega el menú. El usuario escoge una opción. Segun la opcion el case se encarga de encapsular todas las instrucciones. Se vuelve al menu principal (sin rotulo de bienvenida). El programa termina cuando el usuario marca la opción 0 en el menu. 
+El programa arranca. Se instancia un objeto Scanner. Salta el primer rótulo de bienvenida (solo salta al iniciar el programa). Se despliega el menú. El usuario escoge una opción. Segun la opcion el case se encarga de encapsular todas las instrucciones. Se vuelve al menu principal (sin rotulo de bienvenida). El programa termina cuando el usuario marca la opción 0 en el menu. 
 
 Observación:
 cada case ha encapsulado sus intrucciones dentro de {}. Asi separamos cada ámbito. De esta manera evitamos los conflictos por declaración de variables dentro del switch. 
@@ -32,6 +32,22 @@ Casos de uso:
 El usuario introduce 1 para sumar. El main inicializa una variable que alberga un array y le pasa el método public static int[] pedirDosNumoeros(Scanner sc). Guarda el valor de las posiciones del array e inicializa una variable llamada resultado cuyo valor será la función sumar(a,b); que agarra los valores y los suma. 
 
 Las opciones restar y multiplicar usaran el array de int[] numeros para llamar a pedirDosNumeros(sc). Pero la opcion dividir tiene un cambio en el tipo de dato. Usaremos datos double. Asi creamos la funcion pedirDosNumerosDouble(Scanner sc) que cumple las mismas directrices de pedirDosNumeros(Scanner sc) pero cambiando el tipo de dato a double. 
+
+Casos de uso:
+El usuario introduce 5 para la potencia. Se vuelve a llamar al método pedirDosNumeros() inicializando una variable en forma de array que usará el método. int[]variable = pedirDosNumeros(sc);
+El programa pide al usuario la base, y seguidamente la potencia.  Seguidamente se almacenan las posiciones de los números en dos variables. Se inicializa otra variable que será el resultado y se pasa la función potencia(a,b) 
+El programa pinta el resultado.
+
+Función public static int potencia(int base, int exponente){
+	int resultado = 0;
+	for(int i = 0; i < exponente; i ++){
+		int resultado = base * resultado;
+	}
+	return resultado;
+
+}
+ 
+
 
 #### pendiente de revisión todo
 
