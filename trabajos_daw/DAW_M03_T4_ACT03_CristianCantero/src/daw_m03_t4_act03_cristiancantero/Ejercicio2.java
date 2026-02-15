@@ -41,8 +41,24 @@ public class Ejercicio2 {
         int fin = numeros[1];
         
         recorrerNumeros(inicio, fin);
+        
+        sc.close();
     }
-
+    
+    /**
+     *  Solicita al usuario dos números enteros
+     * Esta función:
+     * - Crea un array de tamaño 2
+     * - Pide al usuario que introduzca los dos valores
+     * - Convierte cada valor introducido de String a int.
+     * - Guarda los valores en el array.
+     * - Devuelve el array con ambos números.
+     * @param sc Scanner usado para leer los datos
+     * @return int[] Array donde:
+     *  posición 0 -> núm incio
+     *  posición 1 -> num fin
+     */
+    
     public static int[] pedirNumeros(Scanner sc) {
         int[] numeros = new int[2];
 
@@ -52,6 +68,13 @@ public class Ejercicio2 {
         }
         return numeros;
     }
+    /**
+     * Esta función:
+     * recorre los numeros comprendidos entre inicio y fin.
+     * En cada iteración llama a la funcion esPrimo() y si se cumple lo pinta
+     * @param inicio
+     * @param fin 
+     */
 
     public static void recorrerNumeros(int inicio, int fin) {
         for (int i = inicio; i <= fin; i++) {
@@ -61,7 +84,20 @@ public class Ejercicio2 {
         }
 
     }
-
+ /**
+ * Determina si un número entero positivo es primo.
+ *
+ * Un número primo es aquel que solo es divisible entre 1 y él mismo.
+ *
+ * - Si n es menor o igual que 1, devuelve false.
+ * - Se calcula la raíz cuadrada de n para optimizar la búsqueda de divisores.
+ * - Se recorren los números desde 2 hasta la raíz cuadrada de n.
+ * - Si alguno divide exactamente a n (resto 0), significa que n no es primo.
+ * - Si no se encuentra ningún divisor en ese rango, el número es primo.
+ *
+ * @param n número entero a comprobar.
+ * @return true si n es primo, false en caso contrario.
+ */
     public static boolean esPrimo(int n) {
         if (n <= 1) {
             return false;
