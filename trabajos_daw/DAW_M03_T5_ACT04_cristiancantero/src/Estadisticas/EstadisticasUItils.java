@@ -32,9 +32,16 @@ public class EstadisticasUItils {
     public static double calcularPromedio(double[] array) {
 
         double suma = 0;
-        for (double notas : array) {
-            suma += notas;
+        
+//        double notas=0;
+        for(int notas=0; notas < array.length; notas++){
+        
+        suma = suma + notas;
         }
+        
+//        for (double notas : array) {
+//            suma += notas;
+//        }
         double promedio = suma / array.length;
 
         return promedio;
