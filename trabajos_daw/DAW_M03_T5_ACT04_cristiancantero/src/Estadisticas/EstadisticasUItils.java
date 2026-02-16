@@ -32,9 +32,7 @@ public class EstadisticasUItils {
     public static double calcularPromedio(double[] array) {
 
         double suma = 0;
-        
 
-        
         for (double notas : array) { //estoy tratando de hacer un bucle for de este for/each
             suma += notas;
         }
