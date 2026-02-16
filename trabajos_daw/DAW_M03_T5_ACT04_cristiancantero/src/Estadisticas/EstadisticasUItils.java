@@ -33,15 +33,11 @@ public class EstadisticasUItils {
 
         double suma = 0;
         
-//        double notas=0;
-        for(int notas=0; notas < array.length; notas++){
+
         
-        suma = suma + notas;
+        for (double notas : array) { //estoy tratando de hacer un bucle for de este for/each
+            suma += notas;
         }
-        
-//        for (double notas : array) {
-//            suma += notas;
-//        }
         double promedio = suma / array.length;
 
         return promedio;
