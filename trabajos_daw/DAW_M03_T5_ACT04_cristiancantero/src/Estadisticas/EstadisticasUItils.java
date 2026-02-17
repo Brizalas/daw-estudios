@@ -1,6 +1,7 @@
 package Estadisticas;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  *
@@ -33,11 +34,33 @@ public class EstadisticasUItils {
 
         double suma = 0;
 
-        for (double notas : array) { //estoy tratando de hacer un bucle for de este for/each
-            suma += notas;
+        for(int i = 0; i < array.length; i ++){
+            suma = suma+array[i];
         }
         double promedio = suma / array.length;
 
         return promedio;
+    }
+    
+    public static double calcularDesviacion(double[]array){
+        double media = calcularPromedio(array);
+        double suma = 0;
+        double diferencia = 0;
+        for(int i =0; i<array.length;i++){
+            diferencia = array[i] - media;
+            suma+=diferencia * diferencia;
+        }
+        double variacion = suma/array.length;
+        return Math.sqrt(variacion);
+    }
+    
+    public static double calcularMediana(double[] array){
+        Arrays.sort(array);
+        System.out.println("Array ordenado: ");
+        for(int i =0; i < array.length; i++){
+            System.out.println(i);
+        }
+        double mediana = (array[4] + array [5])/2;
+        return mediana;
     }
 }
