@@ -62,6 +62,6 @@ He aplicado la lógica de la fúncion sabiendo que nuestro array es de 10 posici
 
 Se ordena el array con el método .sort(); 
 Se muestra el array ordenado
-Se hace el cálculo en base de saber las posiciones del array. Pos 5 + pos 5 y el resultado dividido entre 2. 
+Se hace el cálculo en base de saber las posiciones del array. Pos 5 + pos 4 y el resultado dividido entre 2. 
 Se devuelve la mediana. 
 
