@@ -54,3 +54,14 @@ Bucle for recorre todo el array elmento por elemneto, en cad vuelta calcula cuá
 Una vez hechas todas las iteraciones se declara la variable variacion y se le aplican todas las diferencias al cuadrado que se acumularon en la variable suma. Y se dividen entre el número total de elementos.
 Se devuelve el resultado obtenido en la variable variacion y se devuelve el resultado de su raiz cuadrada. En este caso he usado la libreria Math para resolverla.
 
+## CalcularMediana
+
+Es la función que se encarga de realizar la operación matemática de calcular la mediana. Que es el valor que ocupa la posición central de un conjunto de datos cuando están ordenados de menor a mayor.
+Se calcula ordenando los datos. Si el número de valores es impar, la mediana es el valor que está justo en el centro. Si el número de valores es par, la mediana es el promedio de los dos valores centrales.
+He aplicado la lógica de la fúncion sabiendo que nuestro array es de 10 posiciones es par... pero estaría bien encontrar como decirle al programa que si la suma de las posiciones da un número  par escoja los dos valores centrales. Pero que si es impar el valor es justo el que se encuentra en el centro. 
+
+Se ordena el array con el método .sort(); 
+Se muestra el array ordenado
+Se hace el cálculo en base de saber las posiciones del array. Pos 5 + pos 5 y el resultado dividido entre 2. 
+Se devuelve la mediana. 
+
