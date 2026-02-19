@@ -22,6 +22,9 @@ public class Pruebas {
         if(numero % 2 == 0){
             System.out.println("Es divisible entre 2. Este número no es primo");
         }
+        if(numero == 3){
+            System.out.println("3 es primo");
+        }
         
         
     }
