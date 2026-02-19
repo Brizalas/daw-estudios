@@ -34,6 +34,8 @@ Bucle for. Recorre el array y en cada iteración suma el dato anterior con el da
 Se declara una variable double promedio que contiene la formula del promedio. Esta consiste en recoger la suma de los números de array que se encuentra almacenada en la palabra suma y lo divide por la cantidad de posiciones del array. 
 Devuelve el resultado a través de la variable promedio. 
 
+ 
+
 ## calcularDesviacion
 Es la función que se encarga de realizar la operación matemática de calcular la desviacion estandar. 
 La desviación estándar es una medida estadística que indica cuánto se alejan, en promedio, los valores de un conjunto de datos respecto a su media (fuente: chatgpt. Yo no entiendo este enunciado).
@@ -64,4 +66,32 @@ Se ordena el array con el método .sort();
 Se muestra el array ordenado
 Se hace el cálculo en base de saber las posiciones del array. Pos 5 + pos 4 y el resultado dividido entre 2. 
 Se devuelve la mediana. 
+
+Nota personal: Este array es de 10 posiciones porque asi lo marca el enunciado. Entonces la lógica la he aplicado pensando directament en la posición 4 y 5... ¿Pero q sucede si el array es dinámico? Lo simulo así.
+
+- se ordena el array
+- se calcula la mitad. //int mitad = array.length/2
+- Y a partir de ahora hay dos escenarios: par o impar.
+- Para detectar si es par o impar se puede usar el operador módulo: array.length % 2; Si es 0 es par y es distinto de 0 es impar.
+- Impar:
+Imaginemos q el array es de 5 elementos: 
+length = 5; mitad = 5/2; Y casualmente el 2 es exactamente el centro. Entonces: return array[mitad];
+- Par:
+Imaginemos q el array es de 6 elementos:
+length = 6; mitad = 6/2 = 3; Pero en el centro estan 2 y 3. Entonces: (array[mitad-1]+ array[mitad])/2
+
+Código funcion:
+
+public static double calcularMediana(double[]array){
+    Array.sort(array);
+    int mitad = array.length/2;
+
+    if(array.length%2 == 0){
+        return (array[mitad-1] + array[mitad]) / 2;
+    } else {
+        return array[mitad];
+    }
+}
+
+Hay que tener en cuenta que Arrays.sort(array) modifica el array original. En este ejercicio no es importante pero parece ser que en apps grandes se podría querer una copia antes de ordenar para no alterar datos originales.
 
