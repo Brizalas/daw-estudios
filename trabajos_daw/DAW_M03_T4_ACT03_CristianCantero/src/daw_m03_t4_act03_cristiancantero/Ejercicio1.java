@@ -22,8 +22,7 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
-        
+
         System.out.println("Bienvenidos a calculadora");
         do {
             try {
@@ -37,67 +36,67 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
                 System.out.println("0. Salir");
                 System.out.println("--------------------");
                 int opcion = Integer.parseInt(sc.nextLine());
-                
+
                 switch (opcion) {
                     case 1: {
+
                         int[] numeros = pedirDosNumeros(sc);
                         int a = numeros[0];
                         int b = numeros[1];
-                        
-                        int resultado = sumar(a,b);
-                        
-                        System.out.println("El resultado de sumar " + a 
-                        + " + " + b + " es igual a: " + resultado);
-                       
+
+                        int resultado = sumar(a, b);
+
+                        System.out.println("El resultado de sumar " + a
+                                + " + " + b + " es igual a: " + resultado);
+
                         break;
                     }
                     case 2: {
                         int[] numeros = pedirDosNumeros(sc);
                         int a = numeros[0];
                         int b = numeros[1];
-                        
-                        int resultado = restar(a,b);
-                        
-                        System.out.println("El resultado de restar " + a 
-                        + " - " + b + " es igual a: " + resultado);
+
+                        int resultado = restar(a, b);
+
+                        System.out.println("El resultado de restar " + a
+                                + " - " + b + " es igual a: " + resultado);
                         break;
                     }
                     case 3: {
                         int[] numeros = pedirDosNumeros(sc);
                         int a = numeros[0];
                         int b = numeros[1];
-                        
-                        int resultado = multiplicar(a,b);
-                        
-                        System.out.println("El resultado de multiplicar " + a 
-                        + " * " + b + " es igual a: " + resultado);
+
+                        int resultado = multiplicar(a, b);
+
+                        System.out.println("El resultado de multiplicar " + a
+                                + " * " + b + " es igual a: " + resultado);
                         break;
                     }
-                        
-                        
+
                     case 4: {
                         double[] numeros = pedirDosNumerosDouble(sc);
                         double a = numeros[0];
                         double b = numeros[1];
-                        
-                        double resultado = dividir(a,b);
-                        
-                        System.out.println("El resultado de dividir " + a 
-                        + " / " + b + " es igual a: " + resultado);
+
+                        double resultado = dividir(a, b);
+
+                        System.out.println("El resultado de dividir " + a
+                                + " / " + b + " es igual a: " + resultado);
                         break;
                     }
-                    
+
                     case 5:
-                        int[]numeros = pedirDosNumeros(sc);
-                        
+                        int[] numeros = pedirDosNumeros(sc);
+
                         int a = numeros[0];
                         int b = numeros[1];
-                        
-                        long resultado = potencia(a,b);
-                        
+
+                        long resultado = potencia(a, b);
+
                         System.out.println("El resultado de elevar " + a
-                        + " a la " + b + " es: " + resultado);
-                        
+                                + " a la " + b + " es: " + resultado);
+
                         break;
                     case 0:
                         System.out.println("Adios.");
@@ -112,49 +111,102 @@ Crea un menú para que el usuario pueda elegir que operación quiere realizar.
         } while (true);
     }
 
-    //funciones
-   public static int[] pedirDosNumeros(Scanner sc){
-       int[]numeros = new int [2];
-       
-       for(int i = 0; i < numeros.length; i ++ ){
-           System.out.println("Introduce el número " + (i+1));
-           numeros[i]=Integer.parseInt(sc.nextLine());
-       }
-       return numeros;
-   }
-   
-   public static double[] pedirDosNumerosDouble(Scanner sc){
-       double[]numeros = new double [2];
-       
-       for(int i = 0; i < numeros.length; i ++ ){
-           System.out.println("Introduce el número " + (i+1));
-           numeros[i]=Double.parseDouble(sc.nextLine());
-       }
-       return numeros;
-   }
-    
-   public static int sumar(int a, int b){
-       return a + b;
-   }
-   
-   public static int restar(int a, int b){
-       return a - b;
-   }
-   
-   public static int multiplicar (int a, int b){
-       return a * b;
-   }
-   public static double dividir (double a, double b){
-       return a / b;
-   }
-   public static long potencia(long a, long b){
-       long resultado= 1;
-       
-       for(int i=0;i<b;i++){
-           resultado = resultado * a;
-       }
-       
-       return resultado;
-   }
+    //funciones---------------------------------------------------
+    /**
+     *
+     * Solicita al usuario dos numeros enteros y los guarda en un array de
+     * tamaño fijo de dos posiciones
+     *
+     * @param sc
+     * @return array de dos posiciones con los números introducidos
+     */
+    public static int[] pedirDosNumeros(Scanner sc) {
+        int[] numeros = new int[2];
+
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println("Introduce el número " + (i + 1));
+            numeros[i] = Integer.parseInt(sc.nextLine());
+        }
+        return numeros;
+    }
+
+    /**
+     * Solicita al usuario dos numeros double y los guarda en un array de tamaño
+     * fijo de dos posiciones
+     *
+     * @param sc objeto Scanner utilizado para leer la entrada
+     * @return el array de dos posiciones con los dos números introducidos
+     */
+    public static double[] pedirDosNumerosDouble(Scanner sc) {
+        double[] numeros = new double[2];
+
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println("Introduce el número " + (i + 1));
+            numeros[i] = Double.parseDouble(sc.nextLine());
+        }
+        return numeros;
+    }
+
+    /**
+     * suma dos numeros enteros
+     *
+     * @param a
+     * @param b
+     * @return el resultado de la suma
+     */
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+
+    /**
+     * resta dos numeros enteros
+     *
+     * @param a
+     * @param b
+     * @return el resultado de la resta
+     */
+    public static int restar(int a, int b) {
+        return a - b;
+    }
+
+    /**
+     * multiplica dos numeros enteros
+     *
+     * @param a
+     * @param b
+     * @return resultado de la multiplicacion
+     */
+    public static int multiplicar(int a, int b) {
+        return a * b;
+    }
+
+    /**
+     * divide dos numeros double
+     *
+     * @param a
+     * @param b
+     * @return resultado de la divsion
+     */
+    public static double dividir(double a, double b) {
+        return a / b;
+    }
+
+    /**
+     * calcula la potencia, el primer long como base y el segudo long como
+     * exponente
+     *
+     * @param a base
+     * @param b exponente
+     * @return el resultado de la potencia
+     */
+    public static long potencia(long a, long b) {
+        long resultado = 1;
+
+        for (int i = 0; i < b; i++) {
+            resultado = resultado * a;
+        }
+
+        return resultado;
+    }
 
 }
