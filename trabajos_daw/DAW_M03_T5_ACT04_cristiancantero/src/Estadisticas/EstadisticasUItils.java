@@ -4,11 +4,20 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 /**
- *
+ * He declarado la clase como pública para permitur su uso desde la clase principal.
+ * Los metodos son public static porque son operaciones matemáticas independientes y asi 
+ * puedo llamar a las funciones sin necesidad de instanciarlas. 
+ * Como las funciones no tienen estado interno que gestionar y quiero llamarlas desde la clase principal, 
+ * no requieren encapsulación (protected o private)
+ * 
  * @author cristiancantero
  */
 public class EstadisticasUItils {
-
+/**
+ * pide diez números enteros al usuario
+ * @param sc objeto Scanner para introducir los datos
+ * @return Devuelve un array fijo de 10 números guardados
+ */
     public static double[] pedirNumeros(Scanner sc) {
         double[] numeros = new double[10];
         boolean valido = false;
@@ -29,7 +38,11 @@ public class EstadisticasUItils {
         return numeros;
 
     }
-
+/**
+ * recibe un array y calcula el promedio
+ * @param array
+ * @return el resultado del promedio
+ */
     public static double calcularPromedio(double[] array) {
 
         double suma = 0;
@@ -41,7 +54,11 @@ public class EstadisticasUItils {
 
         return promedio;
     }
-    
+    /**
+     * recibe un array y calcula la desviacion estandar
+     * @param array
+     * @return el resultado de la desviación estandar
+     */
     public static double calcularDesviacion(double[]array){
         double media = calcularPromedio(array);
         double suma = 0;
@@ -53,7 +70,11 @@ public class EstadisticasUItils {
         double variacion = suma/array.length;
         return Math.sqrt(variacion);
     }
-    
+    /**
+     * recibe un array de 10 posiciones y calcula la mediana
+     * @param array fijo de 10 posiciones
+     * @return la varianza q es el resultado del cálculo
+     */
     public static double calcularMediana(double[] array){
         Arrays.sort(array);
         System.out.println("Array ordenado: ");
