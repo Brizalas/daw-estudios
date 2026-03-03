@@ -1,5 +1,4 @@
-/UF2/EjercicioTema2/nbproject/private/
-/UF2/EjercicioTema2/build/
+/UF2/EjercicioTema2/nbproject/private//UF2/EjercicioTema2/build/
 /UF2/EjercicioTema2/dist/
 /UF2/Tema3_Arrays/nbproject/private/
 /UF2/Tema3_Arrays/build/
@@ -35,8 +34,14 @@
 /trabajos_daw/DAW_M03_T5_ACT04_cristiancantero/nbproject/private/
 /trabajos_daw/DAW_M03_T5_ACT04_cristiancantero/build/
 /trabajos_daw/DAW_M03_T5_ACT04_cristiancantero/dist/
+<<<<<<< HEAD
 /trabajos_daw/DAW_M03_T06_ACT_06_cristiancantero/nbproject/private/
 /trabajos_daw/DAW_M03_T06_ACT06_cristiancantero/nbproject/private/
 /trabajos_daw/DAW_M03_T06_ACT06_cristiancantero/build/
 /trabajos_daw/DAW_M03_T06_ACT06_cristiancantero/dist/
 .DS_Store
+=======
+/Ejercicios_random/FiltroInteligenteDeNumeros/nbproject/private/
+/Ejercicios_random/FiltroInteligenteDeNumeros/build/
+/Ejercicios_random/FiltroInteligenteDeNumeros/dist/
+>>>>>>> e9e62092ba7ab3bb4538669ebd220fc93492f955
