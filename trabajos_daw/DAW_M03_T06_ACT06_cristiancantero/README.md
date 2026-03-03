@@ -22,3 +22,6 @@ Creando la opción de escribir en el archivo de texto me doy cuenta de que es un
 Errores:
 
 Crea bien la carpeta y el archivo, pero cuando escribo dentro del archivo se genera otro archivo .txt fuera de la carpeta en la raiz del proyecto y es ahí donde se produce la escritura. No se si es un tema de rutas.
+
+update: Estaba confundido, no estaba usando el objeto File sino la variable texto, por eso fallaba el programa. 
+Correjido, primera funcion crearArchivo() está operativa.

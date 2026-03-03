@@ -40,7 +40,7 @@ public class Funciones {
              System.out.println("Creando hoja de registro en: " + texto.getAbsolutePath());
          }
          //escritura del .txt
-         System.out.println("Escribe lo que quieras en tu archivo " + nombre);
+         System.out.println("Escribe lo que quieras en tu archivo " + texto);
          String escribir = sc.nextLine();
          try(BufferedWriter bw = new BufferedWriter(new FileWriter(texto, true))){
              bw.write(escribir);
