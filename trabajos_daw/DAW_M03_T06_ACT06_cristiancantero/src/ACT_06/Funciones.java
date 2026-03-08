@@ -52,5 +52,12 @@ public class Funciones {
          System.out.println(escribir);
          
     }
+    
+    public static File [] listarArchivos(){
+        String ruta = System.getProperty("user.dir");
+        String sep = File.separator;
+        File archivo = new File(ruta+sep+"archivos");
+        
+    }
    
 }

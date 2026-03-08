@@ -19,9 +19,34 @@ Cosas q mejorar:
 El usuario tiene que poner la extensión .txt a mano
 Creando la opción de escribir en el archivo de texto me doy cuenta de que es una función un poco larga con varias responsabilidades dentro de la misma, puede que convenga separarlas. 
 
-Errores:
+Error de la función:
 
 Crea bien la carpeta y el archivo, pero cuando escribo dentro del archivo se genera otro archivo .txt fuera de la carpeta en la raiz del proyecto y es ahí donde se produce la escritura. No se si es un tema de rutas.
 
-update: Estaba confundido, no estaba usando el objeto File sino la variable texto, por eso fallaba el programa. 
-Correjido, primera funcion crearArchivo() está operativa.
+update: No estaba usando el objeto File sino la variable texto, por eso el programa no se comportaba como se esperaba. 
+Correjido, primera funcion crearArchivo() está operativa.✅
+
+5/5/2026
+
+listarArchivo()
+Esta función tiene que entrar en la carpeta "archivos" buscar los .txt y devolver el número o el listado de nombres.
+
+Como estamos trabajando con objetos File existen métodos que nos permiten solucionar cosas:
+
+- listFiles() devuelve todos los objetos File
+
+- isFile() devuelve true solo si representa un archivo normal. Si es una carpeta devuelve false.
+a.txt -> true
+c.jpg -> false
+subcarpeta/ -> false
+
+- getName() este es un método directo para obtener el nombre del archivo sin la ruta.
+si tenemos File f = new File();
+entonces:
+f.getName();
+esto devolverá un string como "archivo1.txt" No la ruta completa, solo el nombre.
+
+El método getName() solo devuelve un nombre pero si quiero la extensión me interesa solo como termina el texto...
+Necesito un método para saber como termina un texto
+
+- endsWith() Pertenece a la clase String. Comprueba si un texto termina con algo concreto
