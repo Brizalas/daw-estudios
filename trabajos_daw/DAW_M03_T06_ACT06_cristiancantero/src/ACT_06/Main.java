@@ -12,7 +12,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[]args)throws IOException{
         Scanner sc = new Scanner (System.in);
+        Funciones.nuevoArchivo(sc);
         File [] resultado = Funciones.listarArchivos();
+        Funciones.mostrarArchivo(sc);
         
         
         

@@ -1,7 +1,9 @@
 package ACT_06;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -19,7 +21,6 @@ public class Funciones {
      * @param scanner sc
      *
      */
-
     public static void nuevoArchivo(Scanner sc) throws IOException {
         String ruta = System.getProperty("user.dir");
         String sep = File.separator;
@@ -63,34 +64,64 @@ public class Funciones {
             archivo.mkdir();
         }
         File[] contenido = archivo.listFiles();
-        
-        if(contenido == null){
+
+        if (contenido == null) {
             return new File[0];
-            
+
         }
         int contador = 0; //este primer contador es para saber cuantos .txt válidos hay
-        for (File f : contenido){
-            if(f.isFile() && f.getName().endsWith(".txt")){
-                contador ++;
+        for (File f : contenido) {
+            if (f.isFile() && f.getName().endsWith(".txt")) {
+                contador++;
             }
         }
         File[] resultado = new File[contador];
         int indice = 0; // este índice sirve para saber en qué posición (hueco) del array []resultado estoy guardando.
-        for (File f : contenido){
-            if(f.isFile() && f.getName().endsWith(".txt")){
-            resultado [indice]= f;
-            indice ++;
+        for (File f : contenido) {
+            if (f.isFile() && f.getName().endsWith(".txt")) {
+                resultado[indice] = f;
+                indice++;
             }
         }
-        
-        for(int i = 0; i < resultado.length; i ++){
-            System.out.println((i+1)+" - "+ resultado[i].getName());
+
+        for (int i = 0; i < resultado.length; i++) { //recorre los .txt mostrando el nombre y numerándolos
+            System.out.println((i + 1) + " - " + resultado[i].getName());
         }
         return resultado;
-        
 
     }
-    
 
+    public static void buscarArchivo(Scanner sc) throws IOException {
+        boolean encontrado = false;
+        File[] archivos = listarArchivos();
+        if (archivos.length == 0) {
+            System.out.println("No hay archivos disponibles");
+            return;
+        }
+
+        System.out.println("Introduce el nombre del archivo que quieres ver.");
+        String nombreArchivo = sc.nextLine();
+        for(File f : archivos){
+            
+            if(nombreArchivo.equalsIgnoreCase(f.getName())){
+                encontrado = true;
+                try(BufferedReader br = new BufferedReader(new FileReader(f))){
+                    String linea;
+                    while((linea=br.readLine())!=null){
+                        System.out.println(linea);
+                    }
+                    
+                }catch(IOException e){
+                    System.out.println("Error en la lectura motrar ARchivo" + e.getMessage());
+                }
+                break;
+            }
+            
+        }
+        if(!encontrado){
+                System.out.println("No existe un documento con este nombre.");
+            }
+
+    }
 
 }
