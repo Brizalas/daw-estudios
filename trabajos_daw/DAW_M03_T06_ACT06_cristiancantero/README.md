@@ -26,7 +26,7 @@ Crea bien la carpeta y el archivo, pero cuando escribo dentro del archivo se gen
 update: No estaba usando el objeto File sino la variable texto, por eso el programa no se comportaba como se esperaba. 
 Correjido, primera funcion crearArchivo() está operativa.✅
 
-5/5/2026
+5/3/2026
 
 listarArchivo()
 Esta función tiene que entrar en la carpeta "archivos" buscar los .txt y devolver el número o el listado de nombres.
@@ -50,3 +50,15 @@ El método getName() solo devuelve un nombre pero si quiero la extensión me int
 Necesito un método para saber como termina un texto
 
 - endsWith() Pertenece a la clase String. Comprueba si un texto termina con algo concreto
+
+14/3/26
+
+mostrarArchivos (Scanner sc)
+Esta función tiene que recorrer la carpeta archivo en busca del docu .txt que el usuario haya indicado.
+Depende directamente de la función listarArchivos()
+- Genera un array File para alamcenar la funcion listarARchivos() y asi poder usarla.
+- Comprueba si la carpeta está vacía antes de nada
+- Pide al usuario el nombre del archivo uqe quiere ver
+- Recorre con un for each la carpeta re-utilizando la función listarArchivos()
+- Se utiliza una bandera booleana para saber si se ha encontrado el archivo
+- Si es true se muestra el archivo si es false se inidica que ese archivo no está ahí.
