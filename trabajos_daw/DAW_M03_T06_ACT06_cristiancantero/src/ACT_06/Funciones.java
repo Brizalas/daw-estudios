@@ -84,9 +84,7 @@ public class Funciones {
             }
         }
 
-        for (int i = 0; i < resultado.length; i++) { //recorre los .txt mostrando el nombre y numerándolos
-            System.out.println((i + 1) + " - " + resultado[i].getName());
-        }
+        
         return resultado;
 
     }
@@ -101,27 +99,98 @@ public class Funciones {
 
         System.out.println("Introduce el nombre del archivo que quieres ver.");
         String nombreArchivo = sc.nextLine();
-        for(File f : archivos){
-            
-            if(nombreArchivo.equalsIgnoreCase(f.getName())){
+        for (File f : archivos) {
+
+            if (nombreArchivo.equalsIgnoreCase(f.getName())) {
                 encontrado = true;
-                try(BufferedReader br = new BufferedReader(new FileReader(f))){
+                try (BufferedReader br = new BufferedReader(new FileReader(f))) {
                     String linea;
-                    while((linea=br.readLine())!=null){
+                    while ((linea = br.readLine()) != null) {
                         System.out.println(linea);
                     }
-                    
-                }catch(IOException e){
+
+                } catch (IOException e) {
                     System.out.println("Error en la lectura motrar ARchivo" + e.getMessage());
                 }
                 break;
             }
-            
+
         }
-        if(!encontrado){
-                System.out.println("No existe un documento con este nombre.");
-            }
+        if (!encontrado) {
+            System.out.println("No existe un documento con este nombre.");
+        }
 
     }
 
+    public static void renombrarTxt(Scanner sc) {
+
+        boolean encontrado = false;
+
+        File[] archivos = listarArchivos();
+
+        if (archivos.length == 0) {
+            System.out.println("Esta carpeta no tiene archivos");
+            return;
+        }
+
+        System.out.println("¿Qué archivo quieres renombrar?");
+        String archivoRenombrar = sc.nextLine();
+
+        for (File f : archivos) {
+            if (archivoRenombrar.equalsIgnoreCase(f.getName())) {
+                encontrado = true;
+
+                System.out.println("Escribe el nombre nuevo");
+                String nombreNuevo = sc.nextLine();
+                String carpeta = f.getParent();
+                File nuevo = new File(carpeta, nombreNuevo);
+                if (nuevo.exists()) {
+                    System.out.println("Este nombre ya existe en otro .txt");
+                    return;
+
+                } else {
+                    f.renameTo(nuevo);
+                    break;
+                }
+            }
+
+        }
+    }
+
+    public static void borrarArchivo(Scanner sc) {
+        boolean encontrado = false;
+        File[] archivos = listarArchivos();
+
+        if (archivos.length == 0) {
+            System.out.println("Esta carpeta está vacía");
+            return;
+        }
+
+        System.out.println("Introduce el archivo que quieres borrar");
+        String archivoBorrar = sc.nextLine();
+
+        for (File f : archivos) {
+            if (archivoBorrar.equalsIgnoreCase(f.getName())) {
+
+                boolean borrado = f.delete(); //guarda el dato para usarlo
+                if (borrado) {
+                    encontrado = true;
+                    System.out.println("Archivo eliminado correctamente");
+                    break;
+                } else {
+                    System.out.println("No se pudo eliminar el archivo");
+                    encontrado = true;
+                    break;
+
+                }
+
+            }
+
+        }
+        if (!encontrado) {
+            System.out.println("No existe un archivo con ese nombre.");
+
+        }
+
+    }
 }
