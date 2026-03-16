@@ -84,7 +84,6 @@ public class Funciones {
             }
         }
 
-        
         return resultado;
 
     }
@@ -123,7 +122,6 @@ public class Funciones {
     }
 
     public static void renombrarTxt(Scanner sc) {
-
         boolean encontrado = false;
 
         File[] archivos = listarArchivos();
@@ -153,9 +151,9 @@ public class Funciones {
                     break;
                 }
             }
-
         }
     }
+   
 
     public static void borrarArchivo(Scanner sc) {
         boolean encontrado = false;
