@@ -13,8 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Gimnasio g = new Gimnasio();
-        Cliente c = new Cliente();
-        Entrenador e = new Entrenador();
+        
         int opcion = 0;
         System.out.println("--Welcome to GymBros--");
         System.out.println();
@@ -27,7 +26,7 @@ public class Main {
             System.out.println("4. Mostrar clientes");
             System.out.println("5. Mostrar entrenadores");
             System.out.println("0. Salir");
-            opcion = Integer.parseInt(sc.nextLine());
+            opcion = Integer.parseInt(sc.nextLine()); 
 
             switch (opcion) {
                 case 1:
