@@ -15,7 +15,7 @@ public class Entrenador {
     public Entrenador() {
     }
 
-    public Entrenador(String nombre, int codigoEntrenador, int edad, int telefono, String email, String especialidad, int experiencia, Cliente []clientesAsignados, int numDeClientesAsignados) {
+    public Entrenador(String nombre, int codigoEntrenador, int edad, int telefono, String email, String especialidad, int experiencia) {
         this.nombre = nombre;
         this.codigoEntrenador = codigoEntrenador;
         this.edad = edad;
