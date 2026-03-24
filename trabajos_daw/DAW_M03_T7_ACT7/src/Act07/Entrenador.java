@@ -8,11 +8,13 @@ public class Entrenador {
     private int telefono;
     private String email;
     private String especialidad;
-    private int experiencia;
+    private int experiencia; 
     private Cliente [] clientesAsignados; 
     private int numDeClientesAsignados;
 
-    public Entrenador() {
+    public Entrenador() { //
+        this.clientesAsignados = new Cliente[10];
+        this.numDeClientesAsignados = 0;
     }
 
     public Entrenador(String nombre, int codigoEntrenador, int edad, int telefono, String email, String especialidad, int experiencia) {
@@ -23,7 +25,7 @@ public class Entrenador {
         this.email = email;
         this.especialidad = especialidad;
         this.experiencia = experiencia;
-        this.clientesAsignados = new Cliente[10];
+        this.clientesAsignados = new Cliente[10];//variables internas del objeto. No hacen falta en los parametros
         this.numDeClientesAsignados = 0; //ojo con el trampantojo!!
         
     }
