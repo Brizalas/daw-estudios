@@ -113,6 +113,7 @@ public class Tienda {
             System.out.println();
             System.out.println("Bebida: " + (i + 1) + b.getNombre());
             System.out.println("Precio: " + b.getPrecio());
+            System.out.println("Precio total: " + b.obtenerPrecioTotal());
             System.out.println();
         }
 
