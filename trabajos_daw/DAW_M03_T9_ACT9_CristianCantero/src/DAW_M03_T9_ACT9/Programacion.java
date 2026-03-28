@@ -5,20 +5,20 @@ package DAW_M03_T9_ACT9;
  *
  * @author cristiancantero
  */
-public class Progamacion extends Asignatura implements precioTotal {
+public class Programacion extends Asignatura implements precioTotal {
     Asignatura asignatura = new Asignatura();
     private String lenguaje;
     private String nivel;
 
-    public Progamacion() {
+    public Programacion() {
     }
 
-    public Progamacion(String lenguaje, String nivel) {
+    public Programacion(String lenguaje, String nivel) {
         this.lenguaje = lenguaje;
         this.nivel = nivel;
     }
 
-    public Progamacion(String lenguaje, String nivel, String nombre, int creditos) {
+    public Programacion(String lenguaje, String nivel, String nombre, int creditos) {
         super(nombre, creditos);
         this.lenguaje = lenguaje;
         this.nivel = nivel;

@@ -7,3 +7,4 @@ package DAW_M03_T9_ACT9;
 public interface precioTotal  {
     void calcularPrecioTotal(int creditos);
         }
+ 
