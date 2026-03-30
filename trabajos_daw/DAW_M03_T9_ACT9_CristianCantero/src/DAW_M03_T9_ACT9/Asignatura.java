@@ -4,11 +4,13 @@ package DAW_M03_T9_ACT9;
  *
  * @author cristiancantero
  */
-public class Asignatura {
+public abstract class Asignatura {
     private String nombre;
     private int creditos;
+   
 
     public Asignatura() {
+        
     }
 
     public Asignatura(String nombre, int creditos) {
@@ -32,5 +34,9 @@ public class Asignatura {
         this.creditos = creditos;
     }
     
+    public abstract int calcularPrecioTotal();
+    public abstract void mostrarInformacion();
+    
     
 }
+ 

@@ -4,8 +4,8 @@ package DAW_M03_T9_ACT9;
  *
  * @author cristiancantero
  */
-public class BaseDatos extends Asignatura implements precioTotal{
-    Asignatura asignatura = new Asignatura();
+public class BaseDatos extends Asignatura {
+    
     private String sistema;
     private String nivel;
 
@@ -40,10 +40,27 @@ public class BaseDatos extends Asignatura implements precioTotal{
     }
     
      @Override
-    public void calcularPrecioTotal(int credito){
+    public int calcularPrecioTotal(){
         
-        int precioTotal = asignatura.getCreditos() * 120;
+        int precio = 120;
+        int resultado = precio * getCreditos();
+        return  resultado;
     }
+    
+     @Override
+    public void mostrarInformacion(){
+        System.out.println("Asignatura: " + getNombre());
+        System.out.println("Creditos: " + getCreditos());
+        System.out.println("Sistema: " + getSistema());
+        System.out.println("Nivel: " + getNivel());
+        System.out.println(calcularPrecioTotal());
+        
+    }
+    
+    
+    
+  
+    
     
    
     

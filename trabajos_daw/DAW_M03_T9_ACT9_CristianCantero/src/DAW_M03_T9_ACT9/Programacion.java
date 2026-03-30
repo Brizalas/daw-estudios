@@ -5,8 +5,8 @@ package DAW_M03_T9_ACT9;
  *
  * @author cristiancantero
  */
-public class Programacion extends Asignatura implements precioTotal {
-    Asignatura asignatura = new Asignatura();
+public class Programacion extends Asignatura{
+    
     private String lenguaje;
     private String nivel;
 
@@ -41,10 +41,21 @@ public class Programacion extends Asignatura implements precioTotal {
     }
     
     @Override
-    public void calcularPrecioTotal(int credito){
-        
-        int precioTotal = asignatura.getCreditos() * 120; 
+    public int calcularPrecioTotal(){
+        int resultado = getCreditos() * 120;
+        return resultado;
     }
     
     
-}
+    
+    @Override
+    public void mostrarInformacion(){
+        System.out.println("Asignatura: " + getNombre());
+        System.out.println("Creditos: " + getCreditos());
+        System.out.println("Lenguaje: " + getLenguaje());
+        System.out.println("Nivel: " + getNivel());
+        System.out.println(calcularPrecioTotal());
+        
+    }
+
+  }
