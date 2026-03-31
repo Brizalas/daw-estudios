@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String [] args){
-        Scanner sc = new Scanner (System.in);
+        
         
         Asignatura [] asignatura = new Asignatura[20];
         Programacion p1 = new Programacion("Java","Básico", "Programacion", 6);
