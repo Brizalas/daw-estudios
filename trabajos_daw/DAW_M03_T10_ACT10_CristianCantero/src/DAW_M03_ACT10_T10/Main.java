@@ -9,25 +9,48 @@ import java.util.Scanner;
  * @author cristiancantero
  */
 public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner (System.in);
-        HashMap<String,Producto>listaProductos = new HashMap<>();
-        ArrayList<String>materiales= new ArrayList<>();
-        Producto p1 = new Producto("Mesa", materiales,100,5);
-        p1.getMateriales().add("madera");
-        p1.getMateriales().add("clavo");
-        p1.getMateriales().add("romero");
+        Scanner sc = new Scanner(System.in);
+        Funciones f = new Funciones();
+        HashMap<String, Producto> listaProductos = new HashMap<>();
+        ArrayList<String> materiales = new ArrayList<>();
+        boolean valido = false;
         
-        for (int i = 0; i < materiales.size(); i++) {
-            System.out.println(("Material ")+(i+1)+(" ")+materiales.get(i));
-        }
+        Producto p1 = new Producto("Mesa",materiales,100,5);
+        listaProductos.put("P001",p1);
         
-        for(String m : materiales){
-            System.out.println(m); 
-        }
-        
-        
-       
-        
+        f.ingresarProducto(listaProductos, p1);
+
+//        do {
+//            try {
+//                System.out.println("====Menú====");
+//                System.out.println("1. Agregar producto");
+//                System.out.println("2. Actualizar producto");
+//                System.out.println("3. Eliminar producto");
+//                System.out.println("0. Salir");
+//                System.out.println("=============");
+//                int opcion = sc.nextInt();
+//                sc.nextLine();
+//
+//                switch (opcion) {
+//                    case 1:
+//                        break;
+//                    case 2:
+//                        break;
+//                    case 3:
+//                        break;
+//                    case 0:
+//                        System.out.println("Adios");
+//                        valido = true;
+//                        break;
+//                    default:
+//                        System.out.println("Introduce una opción válida");
+//                }
+//            } catch (Exception e) {
+//                System.out.println("Error al validar");
+//            }
+//        } while (!valido);
+
     }
 }

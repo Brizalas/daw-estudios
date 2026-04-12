@@ -55,6 +55,13 @@ public class Producto {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "nombre=" + nombre + ", materiales=" + materiales + ", precio=" + precio + ", cantidad=" + cantidad + '}';
+    }
+    
+    
     
     @Override
     public int hashCode(){
