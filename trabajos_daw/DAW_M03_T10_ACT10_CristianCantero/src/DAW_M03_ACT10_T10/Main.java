@@ -24,7 +24,7 @@ public class Main {
                 System.out.println("====Menú====");
                 System.out.println("1. Agregar producto");
                 System.out.println("2. Actualizar producto");
-                System.out.println("3. Eliminar producto");
+                System.out.println("3. Eliminar producto"); 
                 System.out.println("0. Salir");
                 System.out.println("=============");
                 int opcion = sc.nextInt();
