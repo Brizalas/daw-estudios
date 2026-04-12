@@ -20,11 +20,21 @@ public class Funciones {
     }
     
     public void ingresarProducto(HashMap<String,Producto>listaProductos, Producto p){
-        
+         boolean existe = false;
         for(Producto pro : listaProductos.values()){
+           
             if(pro.equals(p)){
-                System.out.println("Ya existe");
+               
+                existe = true;
+                break;
             }
+        }
+        if(existe){
+            System.out.println("El producto ya existe");
+        }else{
+            String codigo = "P" + (listaProductos.size()+1);
+            listaProductos.put(codigo,p);
+            System.out.println("Producto añadido con código: " + codigo);
         }
     }
 
