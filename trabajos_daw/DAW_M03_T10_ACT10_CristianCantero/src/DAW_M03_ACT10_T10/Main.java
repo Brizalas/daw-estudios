@@ -32,14 +32,14 @@ public class Main {
 
                 switch (opcion) {
                     case 1:
-                        f.ingresarProducto(listaProductos, p);
+                        f.agregarProducto(sc);
                         break;
                     case 2:
-                        f.actualizarProducto(sc, listaProductos);
+                        f.actualizarProducto(sc);
                         break;
                         
                     case 3:
-                        f.eliminarProducto(sc, listaProductos); 
+                        f.eliminarProducto(sc); 
                         break;
                     case 0:
                         System.out.println("Adios");

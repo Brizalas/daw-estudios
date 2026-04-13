@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Funciones {
 
     private HashMap<String, Producto> listaProductos = new HashMap<>();
-    private ArrayList<String> materiales = new ArrayList<>();
+    
     
     
     public Funciones(){
@@ -20,6 +20,7 @@ public class Funciones {
     }
     
     public void ingresarProducto(HashMap<String,Producto>listaProductos, Producto p){
+        
          boolean existe = false;
         for(Producto pro : listaProductos.values()){
            
@@ -43,7 +44,7 @@ public class Funciones {
     }
 
     public void agregarProducto(Scanner sc) {
-
+        ArrayList<String>materiales=new ArrayList<>();
         Producto p = new Producto();
         boolean mats = false;
         System.out.println("Introduce el nombre del producto: ");
@@ -76,15 +77,18 @@ public class Funciones {
         sc.nextLine();
         p.setCantidad(cantidad);
         
+        p.setMateriales(materiales);
         ingresarProducto(listaProductos, p);
+        
+        
 
     }
     
-    public void eliminarProducto(Scanner sc, HashMap<String,Producto>listaProductos){
+    public void eliminarProducto(Scanner sc){
         System.out.println("Introduce el nombre a eliminar: ");
         String nombreEliminar = sc.nextLine();
         
-        String claveAEliminar = null;
+        String claveAEliminar = null; //es null porque la clave del hashmap es un String
         
         for(String clave :listaProductos.keySet()){
             Producto product=listaProductos.get(clave);
@@ -100,10 +104,15 @@ public class Funciones {
         }else{
             System.out.println("No se encontró el producto");
         }
+        System.out.println("====Lista productos====");
+        for(Producto pr: listaProductos.values()){
+            System.out.println(pr);
+        }
     }
     
-    public void actualizarProducto(Scanner sc, HashMap<String,Producto> listaProductos){
+    public void actualizarProducto(Scanner sc){
         System.out.println("Introduce el producto que quieres modificar");
+        
         String nombreModificar=sc.nextLine();
         
         boolean encontrado = false;
@@ -128,5 +137,10 @@ public class Funciones {
         if(!encontrado){
             System.out.println("No se encuentra el producto");
         }
+        
+        System.out.println("====Lista productos====");
+        for(Producto pr: listaProductos.values()){
+            System.out.println(pr);
+        }
     }
-}//comentario de cambio
+}
