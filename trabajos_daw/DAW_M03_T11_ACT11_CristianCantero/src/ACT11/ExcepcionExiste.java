@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ACT11;
 
 /**
  *
  * @author cristiancantero
  */
-public class ExcepcionExiste {
-    
+public class ExcepcionExiste extends Exception {
+    public ExcepcionExiste(String mensaje){
+            super(mensaje);
+}
 }

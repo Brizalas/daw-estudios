@@ -1,6 +1,6 @@
 package ACT11;
 
-import java.io.IOException;
+
 import java.util.HashMap;
 
 
@@ -12,13 +12,13 @@ import java.util.HashMap;
 public class Funciones {
 
     private HashMap<String, Libro> listaLibros = new HashMap<>();
-    Libro l = new Libro();
+   
    
     
-    public void agregarLibro(String titulo, int stock) {
+    public void agregarLibro(String titulo, int stock) throws ExcepcionExiste{
         titulo = titulo.toLowerCase(); //para q no me pillen mays y minusc
         if(listaLibros.containsKey(titulo)){
-            System.out.println("Este título ya existe.");
+            throw new ExcepcionExiste("Este libro ya existe en el stock");
         } else {
             Libro libro = new Libro(titulo, stock);
             listaLibros.put(titulo,libro);
@@ -27,6 +27,7 @@ public class Funciones {
         
        }
     public void venderLibro(String titulo)throws ExcepcionNullLibro, ExcepcionStockAgotado{
+        titulo = titulo.toLowerCase().trim();
         Libro libro = listaLibros.get(titulo);
         if (libro == null){
            throw new ExcepcionNullLibro("El libro no existe");
@@ -36,6 +37,16 @@ public class Funciones {
         }
         
         libro.setStock(libro.getStock()-1);
+        System.out.println("Libro vendido correctamente");
+    }
+    
+    public Libro buscarLibro(String titulo) throws ExcepcionNullLibro{
+        titulo = titulo.toLowerCase();
+        Libro libro = listaLibros.get(titulo);
+           if(libro == null){
+               throw new ExcepcionNullLibro("El libro no existe");
+           }
+           return libro;
     }
     
 }
