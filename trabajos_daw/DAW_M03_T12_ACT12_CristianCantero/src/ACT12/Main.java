@@ -15,7 +15,7 @@ public class Main {
 
         // SERIALIZAR
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("libros"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("libros")); 
             oos.writeObject(libro);
             oos.close();
             System.out.println("Libro guardado correctamente");
