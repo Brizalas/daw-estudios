@@ -44,33 +44,37 @@ public class VentanaPral {
                 return;
             }
                 int cilindrada;
-                String cilindradaStr = JOptionPane.showInputDialog("Intorduce la cilindrada");
-                do{
-                try{
-                cilindrada = Integer.parseInt(cilindradaStr);
-                }catch(NumberFormatException f){
-                    JOptionPane.showMessageDialog(null, "Introduce números");
+                while(true){
+                    String cilindradaStr = JOptionPane.showInputDialog("Intoduce la cilindrada");
                     
-                } 
-               
+                    if(cilindradaStr == null || cilindradaStr.isEmpty()){
+                        JOptionPane.showMessageDialog(ventana, "campo vacío");
+                        continue;
+                    }
+                    
+                    try{
+                        cilindrada = Integer.parseInt(cilindradaStr);
+                        break; // salde del bucle si todo va bien
+                    }catch(NumberFormatException f){
+                        JOptionPane.showMessageDialog(ventana, "Introduce un número válido");
+                    }
+                }
                 
                 double precio;
-                String precioStr = JOptionPane.showInputDialog("Introduce el precio");
-                try{
-                    precio = Double.parseDouble(precioStr);
-                }catch(NumberFormatException k){
-                    JOptionPane.showMessageDialog(ventana, "introduce un valor correcto");
-                    return;
-                } 
-                 }while(true);
+                String precioStr = JOptionPane.showInputDialog("Intoduce el precio");
+                precio = Double.parseDouble(precioStr);
+                    
+                    
+                
+                
                 
                     
                 
                
             //2. generar matrícula
-            String matricula = "B-" + vehiculos.size();
+            String matricula = "B-" + vehiculos.size(); 
             //3. crear un objeto con esos datos
-            Vehiculo v = new Vehiculo(marca,modelo,cilindrada,precio,matricula);
+            Vehiculo v = new Vehiculo(marca,modelo,cilindrada,precio,matricula); 
             //4. guardar
             vehiculos.put(matricula, v);
 
