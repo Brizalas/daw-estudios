@@ -19,6 +19,29 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
+    public Vehiculo(String marca, String modelo, int cilindrada, double precio, String matricula) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cilindrada = cilindrada;
+        this.precio = precio;
+        this.matricula = matricula;
+    }
+    
+    
+
+    public Vehiculo(String marca, String modelo, String matricula) { 
+        this.marca = marca;
+        this.modelo = modelo;
+        this.matricula = matricula;
+    }
+
+   
+    
+    
+
+   
+    
+
     public Vehiculo(String marca, String modelo, int cilindrada, ArrayList<String> complementos, double precio, int tipo, String matricula) {
         this.marca = marca;
         this.modelo = modelo;
@@ -115,5 +138,12 @@ public class Vehiculo {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Vehiculo: " + "Marca: " + marca + " Modelo:" + modelo + " Matricula " + matricula;
+    }
+    
+    
 
 }
