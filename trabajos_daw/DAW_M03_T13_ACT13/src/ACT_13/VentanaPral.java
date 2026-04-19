@@ -3,7 +3,6 @@ package ACT_13;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.HashMap;
-import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -15,7 +14,7 @@ import javax.swing.JOptionPane;
 public class VentanaPral {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        
         HashMap<String, Vehiculo> vehiculos = new HashMap();
         JFrame ventana = new JFrame();//crear ventana
         //configurar ventana
@@ -24,13 +23,14 @@ public class VentanaPral {
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//se cierra el programa haciendo click en la x
         ventana.setLocationRelativeTo(null);//centrada
 //        ventana.setLayout(null);//yo decido donde va a ir todo  ==> gridLayout lo pisa
-        ventana.setLayout(new GridLayout(4,1));
+        ventana.setLayout(new GridLayout(5,1));
 
         //crear los componentes
         JButton boton = new JButton("Ingresar Vehículo");
         JButton botonMostrar = new JButton("Mostrar vehículos");
         JButton botonEliminar = new JButton("Eliminar vehículo");
         JButton botonBuscar = new JButton("Buscar vehículo");
+        JButton botonSalir = new JButton("Salir");
         
         
         // boton
@@ -59,6 +59,38 @@ public class VentanaPral {
                         JOptionPane.showMessageDialog(ventana, "Introduce un número válido");
                     }
                 }
+                int tipo;
+                while(true){
+                    
+                    String tipoStr= JOptionPane.showInputDialog("Introduce el tipo: 1. coche / 2.moto");
+                    
+                    if(tipoStr == null || tipoStr.isEmpty()){
+                        JOptionPane.showMessageDialog(ventana, "Campo vacío");
+                        continue;
+                    }
+                    
+                    try{
+                    tipo = Integer.parseInt(tipoStr);
+                      
+                    
+                    switch(tipo){
+                        case 1:
+                            JOptionPane.showMessageDialog(ventana, "Coche");
+                            break;
+                        case 2:
+                            JOptionPane.showMessageDialog(ventana, "Moto");
+                            break;
+                        default:
+                            JOptionPane.showMessageDialog(ventana, "Introduce un caracter válido:");
+                    }
+                    break;
+                    }catch(NumberFormatException f){
+                        JOptionPane.showMessageDialog(ventana, "Introduce un número válido");
+                    }
+                }
+                    
+                
+                
                 
                 double precio;
                 String precioStr = JOptionPane.showInputDialog("Intoduce el precio");
@@ -74,7 +106,7 @@ public class VentanaPral {
             //2. generar matrícula
             String matricula = "B-" + vehiculos.size(); 
             //3. crear un objeto con esos datos
-            Vehiculo v = new Vehiculo(marca,modelo,cilindrada,precio,matricula); 
+            Vehiculo v = new Vehiculo(marca,modelo,cilindrada,tipo,precio,matricula); 
             //4. guardar
             vehiculos.put(matricula, v);
 
@@ -126,6 +158,13 @@ public class VentanaPral {
             }
             
         });
+        
+        //Botón salir
+        
+        botonSalir.addActionListener(e->{
+            JOptionPane.showMessageDialog(ventana, "Gracias por utilizar nuestros servicios");
+            System.exit(0);
+        });
             
                
         //Estilo botones    
@@ -137,6 +176,8 @@ public class VentanaPral {
           botonBuscar.setFont(new Font("Arial", Font.BOLD,16));
           botonEliminar.setBounds(0,0,500,50);
           botonEliminar.setFont(new Font("Arial", Font.BOLD,16));
+          botonSalir.setBounds(0,0,500,50);
+          botonSalir.setFont(new Font("Arial", Font.BOLD,16));
          
           
           //Añadir componentes a la ventana
@@ -144,6 +185,7 @@ public class VentanaPral {
         ventana.add(botonMostrar);
         ventana.add(botonBuscar);
         ventana.add(botonEliminar);
+        ventana.add(botonSalir);
         //mostrar la ventana esto siempre es lo último
         ventana.setVisible(true); 
 

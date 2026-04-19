@@ -19,10 +19,11 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(String marca, String modelo, int cilindrada, double precio, String matricula) {
+    public Vehiculo(String marca, String modelo, int cilindrada, int tipo, double precio, String matricula) {
         this.marca = marca;
         this.modelo = modelo;
         this.cilindrada = cilindrada;
+        this.tipo=tipo;
         this.precio = precio;
         this.matricula = matricula;
     }
@@ -141,7 +142,15 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo: " + "Marca: " + marca + " Modelo:" + modelo + " Matricula " + matricula;
+        String tipoTexto = (tipo ==1) ? "coche" : "moto";
+        
+        return "Vehiculo: " +
+                "Marca: " + marca +
+                " Modelo: " + modelo +
+                " Cilindrada: " + cilindrada + "cc" +
+                " Matricula: " + matricula+
+                " Tipo "+ tipoTexto;
+                
     }
     
     
