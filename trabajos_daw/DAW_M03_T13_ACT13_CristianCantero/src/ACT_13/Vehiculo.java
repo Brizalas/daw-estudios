@@ -19,13 +19,14 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(String marca, String modelo, int cilindrada, int tipo, double precio, String matricula) {
+    public Vehiculo(String marca, String modelo, int cilindrada, int tipo, double precio, String matricula, ArrayList<String>complementos) {
         this.marca = marca;
         this.modelo = modelo;
         this.cilindrada = cilindrada;
         this.tipo=tipo;
         this.precio = precio;
         this.matricula = matricula;
+        this.complementos=complementos;
     }
     
     
@@ -149,7 +150,8 @@ public class Vehiculo {
                 " Modelo: " + modelo +
                 " Cilindrada: " + cilindrada + "cc" +
                 " Matricula: " + matricula+
-                " Tipo "+ tipoTexto;
+                " Tipo: "+ tipoTexto +
+                " Complementos: " + complementos;
                 
     }
     

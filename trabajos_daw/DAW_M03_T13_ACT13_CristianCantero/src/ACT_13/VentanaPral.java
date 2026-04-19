@@ -2,10 +2,11 @@ package ACT_13;
 
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
 
 /**
  *
@@ -26,7 +27,7 @@ public class VentanaPral {
         ventana.setLayout(new GridLayout(5,1));
 
         //crear los componentes
-        JButton boton = new JButton("Ingresar Vehículo");
+        JButton boton = new JButton("Ingresar Vehículo"); 
         JButton botonMostrar = new JButton("Mostrar vehículos");
         JButton botonEliminar = new JButton("Eliminar vehículo");
         JButton botonBuscar = new JButton("Buscar vehículo");
@@ -95,6 +96,27 @@ public class VentanaPral {
                 double precio;
                 String precioStr = JOptionPane.showInputDialog("Intoduce el precio");
                 precio = Double.parseDouble(precioStr);
+                
+                
+                ArrayList<String>complementos = new ArrayList<>();
+                int pocion = JOptionPane.showConfirmDialog(ventana, "¿Quieres añadir complementos?");
+                if(pocion == JOptionPane.YES_OPTION){
+                    while(true){
+                        String complementoSrt = JOptionPane.showInputDialog("Introduce complemto");
+                        
+                        if(complementoSrt== null || complementoSrt.isEmpty()){
+                            JOptionPane.showMessageDialog(ventana, "Campo vacío");
+                            continue;
+                        }
+                        
+                        complementos.add(complementoSrt);
+                        
+                        int otro = JOptionPane.showConfirmDialog(ventana, "¿Añadir otro?");
+                        if(otro != JOptionPane.YES_OPTION){
+                            break;
+                        }
+                    }
+                }
                     
                     
                 
@@ -106,7 +128,7 @@ public class VentanaPral {
             //2. generar matrícula
             String matricula = "B-" + vehiculos.size(); 
             //3. crear un objeto con esos datos
-            Vehiculo v = new Vehiculo(marca,modelo,cilindrada,tipo,precio,matricula); 
+            Vehiculo v = new Vehiculo(marca,modelo,cilindrada,tipo,precio,matricula,complementos); 
             //4. guardar
             vehiculos.put(matricula, v);
 
