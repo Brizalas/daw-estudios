@@ -1,7 +1,5 @@
 package DAW_M03_ACT10_T10;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -13,9 +11,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Funciones f = new Funciones();
-        Producto p = new Producto();
-        HashMap<String, Producto> listaProductos = new HashMap<>();
-        ArrayList<String> materiales = new ArrayList<>();
+        
+       
         boolean valido = false;
         
        

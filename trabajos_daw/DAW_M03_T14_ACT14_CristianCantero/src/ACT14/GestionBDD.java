@@ -124,7 +124,7 @@ public class GestionBDD {
                     + a.getCurso() + "', "
                     + a.getMedia() + ")";
             con.createStatement().executeUpdate(sql);
-            System.out.println("Alumno insertado con éxito");
+            System.out.println("Alumno insertado con éxito"); 
         } catch (Exception e) {
             e.printStackTrace();
         }
