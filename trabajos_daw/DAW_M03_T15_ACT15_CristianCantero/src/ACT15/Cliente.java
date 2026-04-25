@@ -1,11 +1,16 @@
 package ACT15;
 
+import java.io.Serializable;
+import javax.persistence.*;
+
 /**
  *
  * @author cristiancantero
  */
-public class Cliente {
-
+@Entity
+public class Cliente implements Serializable{
+     @Id
+     @GeneratedValue
     private int id;
     private String nombre;
     private String direccion;
@@ -15,20 +20,16 @@ public class Cliente {
         
     }
 
-    public Cliente(int id, String nombre, String direccion, String telefono) {
-        this.id = id;
+    public Cliente( String nombre, String direccion, String telefono) {
+        
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
+   
 
     public String getNombre() {
         return nombre;
@@ -50,4 +51,11 @@ public class Cliente {
     public void setTelefono(String telefono){
         this.telefono = telefono;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + '}';
+    }
+    
+    
 }

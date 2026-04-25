@@ -50,4 +50,11 @@ public class Factura  {
     public void setTotal(double total){
         this.total = total;
     }
+
+    @Override
+    public String toString() {
+        return "Factura{" + "id=" + id + ", fecha=" + fecha + ", total=" + total + ", detalles=" + detalles + '}';
+    }
+    
+    
 }
